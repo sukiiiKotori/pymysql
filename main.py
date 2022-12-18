@@ -1,6 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow,QApplication,QWidget
-from PyQt5.QtWidgets import QApplication,QPushButton,QFileDialog
+from PyQt5.QtWidgets import QMainWindow,QApplication
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
