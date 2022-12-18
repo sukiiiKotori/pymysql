@@ -7,15 +7,15 @@ class Mysql:
             port=3306,  # 端口
             user='root',  # 用户名
             passwd='fyy&pyy',  # 数据库密码
-            db='ShoolManagement',  # 数据库名
+            db='work',  # 数据库名
             charset='utf8',  # 字符集
         )
         self.cursor = self.con.cursor()
 
-    def select_password(self,username:str):
-        self.cursor.execute('select password from s where sno={}'.format(username))
+    def select(self,query:str):
+        self.cursor.execute(query)
         print(f"一共查找到：{self.cursor.rowcount}")
-        return self.cursor.fetchone()[0]
+        return self.cursor
 
     def sign_in_db(self,username:str,password:str):
         pass
