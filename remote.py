@@ -12,10 +12,8 @@ class Mysql:
             charset='utf8',  # 字符集
         )
         self.cursor = self.con.cursor()
-
-<<<<<<< HEAD
-    def select(self,query:str):
         
+    def select(self,query:str):
         self.cursor.execute(query)
         print(f"一共查找到：{self.cursor.rowcount}")
         return (self.cursor.rowcount,self.cursor)
@@ -27,12 +25,6 @@ class Mysql:
             return 1
         except:
             return 0
-=======
-    def select_password(self,username:str):
-        self.cursor.execute('select password from s where sno={}'.format(username))
-        print(f"一共查找到：{self.cursor.rowcount}")
-        return self.cursor.fetchone()[0]
->>>>>>> 4be8371f7f5a1a7b6c9c0fa1aecd41042c030f6f
 
     def sign_in_db(self,username:str,password:str):
         pass
