@@ -17,8 +17,13 @@ class Mysql:
         print(f"一共查找到：{self.cursor.rowcount}")
         return self.cursor
 
-    def sign_in_db(self,username:str,password:str):
-        pass
+    def insert(self,query:str):
+        try:
+            self.cursor.execute(query)
+            self.con.commit()
+            return 1
+        except:
+            return 0
 
 
 

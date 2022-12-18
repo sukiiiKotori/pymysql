@@ -2,6 +2,7 @@ import sys
 import time
 from PyQt5.QtWidgets import QMainWindow,QApplication,QWidget
 from PyQt5.QtWidgets import QApplication,QPushButton,QFileDialog
+from PyQt5.QtCore import QTimer
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
@@ -12,7 +13,8 @@ class log_in(QMainWindow,Ui_MainWindow_login):
         super(log_in,self).__init__(parent)
         self.setupUi(self)
         self.login_stu.clicked.connect(self.display_stu)
-        #self.login_tea.clicked.connect()
+        self.login_tea.clicked.connect(self.display_tea)
+        self.login_sur.clicked.connect(self.display_sur)
         self.signup.clicked.connect(self.switch_to_signup)
         self.show()
 
@@ -30,17 +32,32 @@ class log_in(QMainWindow,Ui_MainWindow_login):
         else:
             self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
 
-    def login_tea(self):
-        pass
+    def display_tea(self):
+        username=self.username_lineEdit_2.text()
+        password=self.password_lineEdit_2.text()
+        cur=Thread1.mysql.select('select tpassword from teacher where tno={}'.format(username))
+        password_fromDB=cur.fetchone()[0]
+        if password_fromDB==password:
+            self.close()
+            Sign_up.show()
+        else:
+            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
 
-    def login_sur(self):
-        pass
+
+    def display_sur(self):
+        username=self.username_lineEdit_3.text()
+        password=self.password_lineEdit_3.text()
+        cur=Thread1.mysql.select('select supassword from surveyor where wno={}'.format(username))
+        password_fromDB=cur.fetchone()[0]
+        if password_fromDB==password:
+            self.close()
+            Sign_up.show()
+        else:
+            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
 
     def switch_to_signup(self):
         self.close()
         Sign_up.show()
-
-
 
         
 class sign_up(QMainWindow,Ui_MainWindow_signup):
