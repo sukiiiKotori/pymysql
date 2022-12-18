@@ -24,36 +24,48 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def display_stu(self):
         username=self.username_lineEdit.text()
         password=self.password_lineEdit.text()
-        cur=Thread1.mysql.select('select spassword from student where sno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
-        if password_fromDB==password:
-            self.close()
-            Sign_up.show()
-        else:
-            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
+        (num,cur)=Thread1.mysql.select('select spassword from student where sno={}'.format(username))
+        if num==0:
+            self.label_2.setText('        登陆失败！\n账户不存在...请重试')
+
+        else :
+            password_fromDB=cur.fetchone()[0]
+            if password_fromDB==password:
+                self.close()
+                Sign_up.show()
+            else:
+                self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
     def display_tea(self):
         username=self.username_lineEdit_2.text()
         password=self.password_lineEdit_2.text()
-        cur=Thread1.mysql.select('select tpassword from teacher where tno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
-        if password_fromDB==password:
-            self.close()
-            Sign_up.show()
-        else:
-            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
+        (num,cur)=Thread1.mysql.select('select tpassword from teacher where tno={}'.format(username))
+        if num==0:
+            self.label_2.setText('        登陆失败！\n账户不存在...请重试')
+
+        else :
+            password_fromDB=cur.fetchone()[0]
+            if password_fromDB==password:
+                self.close()
+                Sign_up.show()
+            else:
+                self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
 
     def display_sur(self):
         username=self.username_lineEdit_3.text()
         password=self.password_lineEdit_3.text()
-        cur=Thread1.mysql.select('select supassword from surveyor where wno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
-        if password_fromDB==password:
-            self.close()
-            Sign_up.show()
-        else:
-            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
+        (num,cur)=Thread1.mysql.select('select supassword from surveyor where wno={}'.format(username))
+        if num==0:
+            self.label_2.setText('        登陆失败！\n账户不存在...请重试')
+
+        else :
+            password_fromDB=cur.fetchone()[0]
+            if password_fromDB==password:
+                self.close()
+                Sign_up.show()
+            else:
+                self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
     def switch_to_signup(self):
         self.close()

@@ -13,9 +13,10 @@ class Mysql:
         self.cursor = self.con.cursor()
 
     def select(self,query:str):
+        
         self.cursor.execute(query)
         print(f"一共查找到：{self.cursor.rowcount}")
-        return self.cursor
+        return (self.cursor.rowcount,self.cursor)
 
     def insert(self,query:str):
         try:
