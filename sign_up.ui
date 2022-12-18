@@ -524,6 +524,44 @@ QPushButton:pressed{
      </widget>
     </widget>
    </widget>
+   <widget class="QPushButton" name="return_to_login">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>500</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 10pt &quot;微软雅黑&quot;;
+	color: rgb(0, 0, 0);
+	border: none;
+	border-radius:10px
+}
+QPushButton:hover{
+	color:rgb(0, 170, 255)
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+    </property>
+    <property name="text">
+     <string>返回登陆界面</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

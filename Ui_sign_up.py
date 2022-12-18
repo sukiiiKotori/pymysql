@@ -261,6 +261,30 @@ class Ui_MainWindow_signup(object):
 "")
         self.surveyor_pushButton.setObjectName("surveyor_pushButton")
         self.tabWidget.addTab(self.tab, "")
+        self.return_to_login = QtWidgets.QPushButton(self.centralwidget)
+        self.return_to_login.setGeometry(QtCore.QRect(60, 500, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.return_to_login.setFont(font)
+        self.return_to_login.setStyleSheet("QPushButton{\n"
+"    font: 10pt \"微软雅黑\";\n"
+"    color: rgb(0, 0, 0);\n"
+"    border: none;\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    color:rgb(0, 170, 255)\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.return_to_login.setObjectName("return_to_login")
         MainWindow_signup.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_signup)
@@ -290,3 +314,4 @@ class Ui_MainWindow_signup(object):
         self.password_confirm_lineEdit_3.setPlaceholderText(_translate("MainWindow_signup", "确认密码"))
         self.surveyor_pushButton.setText(_translate("MainWindow_signup", "注册"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow_signup", "核酸检测员注册"))
+        self.return_to_login.setText(_translate("MainWindow_signup", "返回登陆界面"))

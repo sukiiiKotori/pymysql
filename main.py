@@ -71,7 +71,11 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
     def __init__(self, parent=None):
         super(sign_up,self).__init__(parent)
         self.setupUi(self)
+        self.return_to_login.clicked.connect(self.goto_login)
         #self.pushButton_3.clicked.connect()
+    def goto_login(self):
+        self.close()
+        Log_in.show()
         
 
 class student(QMainWindow,Ui_MainWindow):
