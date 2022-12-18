@@ -47,6 +47,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
 
         
 class sign_up(QMainWindow,Ui_MainWindow_signup):
+    
     def __init__(self, parent=None):
         super(sign_up,self).__init__(parent)
         self.setupUi(self)
@@ -54,6 +55,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         
 
 class student(QMainWindow,Ui_MainWindow):
+    self.sno=''
     def __init__(self, parent=None):
         super(student,self).__init__(parent)
         self.setupUi(self)

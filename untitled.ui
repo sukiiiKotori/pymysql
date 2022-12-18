@@ -108,7 +108,7 @@ QTabWidget::pane{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="student">
      <attribute name="title">
@@ -327,7 +327,7 @@ border-radius:10px
        <string/>
       </property>
       <property name="placeholderText">
-       <string>用户名</string>
+       <string>工号</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="password_lineEdit_3">
