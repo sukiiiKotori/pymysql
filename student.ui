@@ -41,38 +41,8 @@
      <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>60</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>在学校</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在市内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国外</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="comboBox_2">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>130</y>
+        <x>40</x>
+        <y>50</y>
         <width>171</width>
         <height>31</height>
        </rect>

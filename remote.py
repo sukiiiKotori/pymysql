@@ -1,4 +1,5 @@
 import pymysql
+import datetime
 
 class Mysql:
     def __init__(self) :
@@ -12,22 +13,32 @@ class Mysql:
         )
         self.cursor = self.con.cursor()
 
-    def select(self,query:str):
-        self.cursor.execute(query)
+    def select_password(self,username:str):
+        self.cursor.execute('select password from s where sno={}'.format(username))
         print(f"一共查找到：{self.cursor.rowcount}")
-        return self.cursor
+        return self.cursor.fetchone()[0]
 
-    def insert(self,query:str):
-        try:
-            self.cursor.execute(query)
-            self.con.commit()
-            return 1
-        except:
-            return 0
+    def sign_in_db(self,username:str,password:str):
+        pass
 
-
+    def commit_test(self, sno:str, teid:str, wno:str):
+        sql = f'insert into stutest(sno, teid, wno, tetime) values(%s, %s, %s, %s)'
+        self.cursor.execute(sql, (sno, teid, wno, datetime.datetime.now()))
+        self.con.commit()
+    
+    def get_test_record(self, wno:str):
+        sql = f'select * from stutest where wno = %s'
+        self.cursor.execute(sql, wno)
+        data = self.cursor.fetchall()
+        return data
 
     def close(self):
         self.cursor.close()
         self.con.close()
 
+# if __name__ == '__main__':
+#     sql = Mysql()
+#     # sql.commit_test('1', 'as', '12')
+#     # sql.commit_test('2', '2324', '12')
+#     # sql.commit_test('3', 'fasdf', '12')
+#     sql.get_test_record('12')

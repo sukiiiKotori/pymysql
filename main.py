@@ -2,53 +2,37 @@ import sys
 import time
 from PyQt5.QtWidgets import QMainWindow,QApplication,QWidget
 from PyQt5.QtWidgets import QApplication,QPushButton,QFileDialog
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import *
+from PyQt5.Qt import *
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
-from Thread_Mysql import Thread_mysql
+from remote import Mysql
+
+class Thread_mysql(QThread):
+    mysql_signal = pyqtSignal(str)
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        self.mysql=Mysql()
+        self.mysql_signal.emit('远程数据库连接成功！')
 
 class log_in(QMainWindow,Ui_MainWindow_login):
     def __init__(self, parent=None):
         super(log_in,self).__init__(parent)
         self.setupUi(self)
-        self.login_stu.clicked.connect(self.display_stu)
-        self.login_tea.clicked.connect(self.display_tea)
-        self.login_sur.clicked.connect(self.display_sur)
+        self.login_stu.clicked.connect(self.login_display)
         self.signup.clicked.connect(self.switch_to_signup)
         self.show()
 
     def show_connect_success(self,data):
         self.label_2.setText(data)
 
-    def display_stu(self):
+    def login_display(self):
         username=self.username_lineEdit.text()
         password=self.password_lineEdit.text()
-        cur=Thread1.mysql.select('select spassword from student where sno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
-        if password_fromDB==password:
-            self.close()
-            Sign_up.show()
-        else:
-            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
-
-    def display_tea(self):
-        username=self.username_lineEdit_2.text()
-        password=self.password_lineEdit_2.text()
-        cur=Thread1.mysql.select('select tpassword from teacher where tno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
-        if password_fromDB==password:
-            self.close()
-            Sign_up.show()
-        else:
-            self.label_2.setText('        登陆失败！\n 请检查用户名或密码')
-
-
-    def display_sur(self):
-        username=self.username_lineEdit_3.text()
-        password=self.password_lineEdit_3.text()
-        cur=Thread1.mysql.select('select supassword from surveyor where wno={}'.format(username))
-        password_fromDB=cur.fetchone()[0]
+        password_fromDB=self.Thread1.mysql.select_password(username)
         if password_fromDB==password:
             self.close()
             Sign_up.show()
@@ -58,6 +42,8 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def switch_to_signup(self):
         self.close()
         Sign_up.show()
+
+
 
         
 class sign_up(QMainWindow,Ui_MainWindow_signup):
@@ -71,7 +57,6 @@ class student(QMainWindow,Ui_MainWindow):
     def __init__(self, parent=None):
         super(student,self).__init__(parent)
         self.setupUi(self)
-        self.sno=''
 
 
 
@@ -87,5 +72,7 @@ if __name__ == "__main__":
     Student=student()
     
     
-
+    Sign_up.pushButton_3.clicked.connect(
+        lambda:{Sign_up.close(), Log_in.show(),}
+    )
     sys.exit(app.exec_())
