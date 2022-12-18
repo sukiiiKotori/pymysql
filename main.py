@@ -32,7 +32,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def login_display(self):
         username=self.username_lineEdit.text()
         password=self.password_lineEdit.text()
-        password_fromDB=self.Thread1.mysql.select_password(username)
+        password_fromDB=Thread1.mysql.select_password(username)
         if password_fromDB==password:
             self.close()
             Sign_up.show()
