@@ -108,7 +108,7 @@ QTabWidget::pane{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="student">
      <attribute name="title">
@@ -117,7 +117,7 @@ QTabWidget::pane{
      <widget class="QLineEdit" name="username_lineEdit">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>40</y>
         <width>221</width>
         <height>41</height>
@@ -149,7 +149,7 @@ border-radius:10px
      <widget class="QLineEdit" name="password_lineEdit">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>100</y>
         <width>221</width>
         <height>41</height>
@@ -171,7 +171,7 @@ border-radius:10px
      <widget class="QPushButton" name="login_stu">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>170</x>
         <y>170</y>
         <width>121</width>
         <height>41</height>
@@ -209,7 +209,7 @@ QPushButton:pressed{
      <widget class="QLineEdit" name="username_lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>40</y>
         <width>221</width>
         <height>41</height>
@@ -241,7 +241,7 @@ border-radius:10px
      <widget class="QLineEdit" name="password_lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>100</y>
         <width>221</width>
         <height>41</height>
@@ -263,7 +263,7 @@ border-radius:10px
      <widget class="QPushButton" name="login_tea">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>170</x>
         <y>170</y>
         <width>121</width>
         <height>41</height>
@@ -301,7 +301,7 @@ QPushButton:pressed{
      <widget class="QLineEdit" name="username_lineEdit_3">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>40</y>
         <width>221</width>
         <height>41</height>
@@ -327,13 +327,13 @@ border-radius:10px
        <string/>
       </property>
       <property name="placeholderText">
-       <string>工号</string>
+       <string>用户名</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="password_lineEdit_3">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>120</x>
         <y>100</y>
         <width>221</width>
         <height>41</height>
@@ -352,10 +352,10 @@ border-radius:10px
        <string>密码</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="login_sur">
+     <widget class="QPushButton" name="login_tea_2">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>170</x>
         <y>170</y>
         <width>121</width>
         <height>41</height>

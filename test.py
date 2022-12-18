@@ -1,69 +1,47 @@
-# coding:utf-8
-from PyQt5 import QtWidgets,QtCore
+from PyQt5.QtWidgets import QMainWindow,QApplication,QWidget
+from Ui_surveyor import Ui_Form
 import sys
-import json
-class Widget(QtWidgets.QWidget):
-    def __init__(self):
-        super(Widget, self).__init__()
-        self.setWindowTitle("省市县选择器（test）")
-        self.init_data() # 初始化数据
-        self.init_ui() # 初始化UI
-    # 初始化数据
-    def init_data(self):
-        # 读取json数据
-        with open("./data.json", 'r', encoding='utf-8') as data:
-            self.data_json = json.loads(data.read(), encoding='utf-8')
-    # 初始化UI
-    def init_ui(self):
-        # 省选择器
-        self.province = QtWidgets.QComboBox()
-        self.province.addItem("--请选择省")
-        self.province.currentTextChanged.connect(self.slot_province_click)
-        for data in self.data_json:
-            self.province.addItem(data['Name'])
-        # 市选择器
-        self.city = QtWidgets.QComboBox()
-        self.city.addItem("--请选择市")
-        self.city.currentTextChanged.connect(self.slot_city_click)
-        # 县选择器
-        self.county = QtWidgets.QComboBox()
-        self.county.addItem("--请选择县")
-        self.county.currentTextChanged.connect(self.slot_county_click)
-        self.layout = QtWidgets.QGridLayout()
-        self.setLayout(self.layout)
-        self.layout.addWidget(self.province, 0, 0, 1, 1)
-        self.layout.addWidget(self.city, 0, 1, 1, 1)
-        self.layout.addWidget(self.county, 0, 2, 1, 1)
-    # 省选择器点击响应
-    def slot_province_click(self):
-        current_province = self.province.currentText()
-        if current_province.startswith('--') is False:
-            for data in self.data_json:
-                if data['Name'] == current_province:
-                    self.current_city_data = data['Cities']
-                    self.city.clear()
-                    for c in data['Cities']:
-                        self.city.addItem(c['Name'])
-        else:
-            self.city.clear()
-            self.county.clear()
-    # 市选择器点击响应
-    def slot_city_click(self):
-        current_city = self.city.currentText()
-        if current_city.startswith('--') is False:
-            for data in self.current_city_data:
-                if data['Name'] == current_city:
-                    self.county.clear()
-                    for c in data['Districts']:
-                        self.county.addItem(c['Name'])
-            
-    def slot_county_click(self):
-        self.adrress=self.province.currentText()+self.city.currentText()+self.county.currentText()
+from remote import Mysql
 
-def main():
-    app = QtWidgets.QApplication(sys.argv)
-    gui = Widget()
-    gui.show()
-    sys.exit(app.exec())
-if __name__ == '__main__':
-    main()
+class MyMainWindow(QMainWindow, Ui_Form):
+    def __init__(self,wno,parent=None):
+        super(MyMainWindow,self).__init__(parent)
+        self.setupUi(self)
+        self.button1.clicked.connect(self.tab_change_0)
+        self.button2.clicked.connect(self.tab_change_1)
+        self.button3.clicked.connect(lambda:self.commit_test(wno))
+        self.button4.clicked.connect(lambda:self.get_data(wno))
+    def tab_change_0(self):
+        self.tabWidget.setCurrentIndex(0)
+        self.label_4.setText('请输入数据后点击提交')
+    def tab_change_1(self):
+        self.tabWidget.setCurrentIndex(1)
+    def commit_test(self, wno:str):
+        mysql = Mysql()
+        sno = str(self.lineEdit.text())
+        teid = str(self.lineEdit_2.text())
+        if sno == '':
+            self.label_4.setText('请输入学号后再提交！')
+        elif teid == '':
+            self.label_4.setText('请输入试管编号后再提交！')
+        else:
+            mysql.commit_test(sno, teid, wno)
+            self.label_4.setText('提交成功！')
+            self.lineEdit.clear()
+            self.lineEdit_2.clear()
+    def get_data(self, wno:str):
+        mysql = Mysql()
+        data = mysql.get_test_record(wno)
+        cur = self.textBrowser.textCursor()
+        for line in data:
+            text = '学号：' + line[0] + '，试管号：' + line[1] + '，时间：' + str(line[3]) + '\n'
+            cur.insertText(text)
+        self.textBrowser.setTextCursor(cur)
+        self.textBrowser.ensureCursorVisible()
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    myWin = MyMainWindow('12')
+    myWin.show()
+    sys.exit(app.exec_())    
