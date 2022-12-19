@@ -5,6 +5,7 @@ from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
 from Thread_Mysql import Thread_mysql
 from initsur import SurMainWindow
+from initsur import SurMainWindow
 
 class log_in(QMainWindow,Ui_MainWindow_login):
     def __init__(self, parent=None):
@@ -63,6 +64,8 @@ class log_in(QMainWindow,Ui_MainWindow_login):
                 self.close()
                 surWin.init(username)
                 surWin.show()
+                surWin.init(username)
+                surWin.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
@@ -95,11 +98,23 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
                 self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
             else:
                 self.label.setText('          注册失败！\n       该用户已存在')
+                self.label.setText('           注册失败！\n        该用户已存在')
         
     def sign_tea(self):
         pass
     def sign_sur(self):
-        pass
+        wname = self.name_lineEdit_3.text()
+        wno = self.wno_lineEdit.text()
+        password = self.password_lineEdit_3.text()
+        password_confirm = self.password_confirm_lineEdit_3.text()
+        if password != password_confirm:
+            self.label.setText('  两次输入的密码不一致\n             请重试')
+        else:
+            query='insert into surveyor values ({},{},{})'.format(wno, wname, password)
+            if Thread1.mysql.insert(query) == 1:
+                self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
+            else:
+                self.label.setText('           注册失败！\n        该用户已存在')
         
 
 class student(QMainWindow,Ui_MainWindow):
@@ -116,6 +131,7 @@ if __name__ == "__main__":
     Thread1.mysql_signal.connect(Log_in.show_connect_success)
     Thread1.start()
     
+    surWin = SurMainWindow()
     surWin = SurMainWindow()
     Sign_up=sign_up()
     Student=student()
