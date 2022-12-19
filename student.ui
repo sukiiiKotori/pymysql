@@ -20,10 +20,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>50</y>
-      <width>461</width>
-      <height>361</height>
+      <x>220</x>
+      <y>40</y>
+      <width>521</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -38,76 +38,70 @@
      <attribute name="title">
       <string>Tab 1</string>
      </attribute>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QLineEdit" name="name_lineEdit">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>60</y>
-        <width>191</width>
+        <x>80</x>
+        <y>70</y>
+        <width>201</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>12</pointsize>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+        <strikeout>false</strikeout>
        </font>
       </property>
-      <item>
-       <property name="text">
-        <string>在学校</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在市内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国外</string>
-       </property>
-      </item>
+      <property name="styleSheet">
+       <string notr="true">border:2px solid rgb(186,186,186);
+font: 10pt &quot;微软雅黑&quot;;
+border-radius:10px
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>今日体温/℃</string>
+      </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QTextEdit" name="textEdit">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>130</y>
-        <width>171</width>
-        <height>31</height>
+        <x>30</x>
+        <y>190</y>
+        <width>321</width>
+        <height>111</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>在学校</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在市内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国内</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>在国外</string>
-       </property>
-      </item>
+      <property name="styleSheet">
+       <string notr="true">border:2px solid rgb(186,186,186);
+font: 10pt &quot;微软雅黑&quot;;
+border-radius:10px</string>
+      </property>
+      <property name="markdown">
+       <string/>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Tab 2</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Tab 3</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Tab 4</string>
      </attribute>
     </widget>
    </widget>
@@ -148,6 +142,72 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>30</x>
+      <y>220</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(0,0,0);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+    </property>
+    <property name="text">
+     <string>请假管理</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="login_stu_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(0,0,0);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+    </property>
+    <property name="text">
+     <string>查看核酸结果</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="login_stu_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
       <y>290</y>
       <width>141</width>
       <height>41</height>
@@ -174,20 +234,7 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
-     <string>请销假管理</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>30</y>
-      <width>281</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
+     <string>查看健康码</string>
     </property>
    </widget>
   </widget>

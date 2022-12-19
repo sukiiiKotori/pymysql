@@ -19,24 +19,46 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(210, 50, 461, 361))
+        self.tabWidget.setGeometry(QtCore.QRect(220, 40, 521, 511))
         self.tabWidget.setStyleSheet("QTabWidget::pane{\n"
 "    border:none;\n"
 "}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
-        self.comboBox = QtWidgets.QComboBox(self.tab)
-        self.comboBox.setGeometry(QtCore.QRect(40, 50, 171, 31))
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
+        self.name_lineEdit = QtWidgets.QLineEdit(self.tab)
+        self.name_lineEdit.setGeometry(QtCore.QRect(80, 70, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        self.name_lineEdit.setFont(font)
+        self.name_lineEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.name_lineEdit.setText("")
+        self.name_lineEdit.setObjectName("name_lineEdit")
+        self.textEdit = QtWidgets.QTextEdit(self.tab)
+        self.textEdit.setGeometry(QtCore.QRect(30, 190, 321, 111))
+        self.textEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px")
+        self.textEdit.setMarkdown("")
+        self.textEdit.setObjectName("textEdit")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QtWidgets.QWidget()
+        self.tab_3.setObjectName("tab_3")
+        self.tabWidget.addTab(self.tab_3, "")
+        self.tab_4 = QtWidgets.QWidget()
+        self.tab_4.setObjectName("tab_4")
+        self.tabWidget.addTab(self.tab_4, "")
         self.login_stu = QtWidgets.QPushButton(self.centralwidget)
         self.login_stu.setGeometry(QtCore.QRect(30, 150, 141, 41))
         self.login_stu.setStyleSheet("QPushButton{\n"
@@ -59,7 +81,7 @@ class Ui_MainWindow(object):
 "")
         self.login_stu.setObjectName("login_stu")
         self.login_stu_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.login_stu_3.setGeometry(QtCore.QRect(30, 290, 141, 41))
+        self.login_stu_3.setGeometry(QtCore.QRect(30, 220, 141, 41))
         self.login_stu_3.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
@@ -79,6 +101,48 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.login_stu_3.setObjectName("login_stu_3")
+        self.login_stu_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.login_stu_2.setGeometry(QtCore.QRect(30, 360, 141, 41))
+        self.login_stu_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color: rgb(0, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(0,0,0);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.login_stu_2.setObjectName("login_stu_2")
+        self.login_stu_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.login_stu_4.setGeometry(QtCore.QRect(30, 290, 141, 41))
+        self.login_stu_4.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color: rgb(0, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(0,0,0);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.login_stu_4.setObjectName("login_stu_4")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -88,11 +152,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "学生管理"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "在学校"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "在市内"))
-        self.comboBox.setItemText(2, _translate("MainWindow", "在国内"))
-        self.comboBox.setItemText(3, _translate("MainWindow", "在国外"))
+        self.name_lineEdit.setPlaceholderText(_translate("MainWindow", "今日体温/℃"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Tab 3"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 4"))
         self.login_stu.setText(_translate("MainWindow", "疫情填报"))
-        self.login_stu_3.setText(_translate("MainWindow", "请销假管理"))
+        self.login_stu_3.setText(_translate("MainWindow", "请假管理"))
+        self.login_stu_2.setText(_translate("MainWindow", "查看核酸结果"))
+        self.login_stu_4.setText(_translate("MainWindow", "查看健康码"))
