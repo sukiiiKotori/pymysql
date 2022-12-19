@@ -194,7 +194,7 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
             massage = '学号：' + sno + '\n' + '健康状态：' + state
             if addi != '':
                 massage = massage + '\n' + '备注信息：' + addi
-            Thread1.mysql.code_commit(sno, massage)
+            Thread1.mysql.code_commit(sno, state, massage)
             self.label_12.setText("提交成功！")
             self.lineEdit_2.clear()
             self.lineEdit_3.clear()
@@ -234,8 +234,11 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
             self.label_6.setText('                                     请选择区县信息')
         else:
             address = self.comboBox_p1.currentText()+self.comboBox_c1.currentText()+self.comboBox_ct1.currentText()
-            Thread1.mysql.commit_riskarea(address)
-            self.label_6.setText('       '+str(datetime.datetime.now())+'：提交成功')
+            flag = Thread1.mysql.commit_riskarea(address)
+            if flag == 1:
+                self.label_6.setText('       '+str(datetime.datetime.now())+'：提交成功')
+            else:
+                self.label_6.setText('                            该地区已经被设置为风险地区')
     def remove_riskarea(self):
         if self.comboBox_p2.currentText() == '--请选择省':
             self.label_7.setText('                                     请选择省份信息')
@@ -245,8 +248,11 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
             self.label_7.setText('                                     请选择区县信息')
         else:
             address = self.comboBox_p2.currentText()+self.comboBox_c2.currentText()+self.comboBox_ct2.currentText()
-            Thread1.mysql.remove_riskarea(address)
-            self.label_7.setText('       '+str(datetime.datetime.now())+'：提交成功')
+            flag = Thread1.mysql.remove_riskarea(address)
+            if flag == 1:
+                self.label_7.setText('       '+str(datetime.datetime.now())+'：提交成功')
+            else:
+                self.label_7.setText('                                     不存在该风险地区')
     # 初始化UI
     def init_ui(self):
         # 省选择器

@@ -58,24 +58,48 @@ class Mysql:
         self.con.commit()
 
     def commit_riskarea(self, address:str):
-        sql = f'insert into riskarea values(%s)'
-        self.cursor.execute(sql, address)
-        self.con.commit()
+        sql1 = f'select * from riskarea where area = %s'
+        self.cursor.execute(sql1, address)
+        print(self.cursor.rowcount)
+        if self.cursor.rowcount == 1:
+            return 0
+        else:
+            sql2 = f'insert into riskarea values(%s)'
+            self.cursor.execute(sql2, address)
+            self.con.commit()
+            return 1
     
     def remove_riskarea(self, address:str):
-        sql = f'delete from riskarea where area = %s'
-        self.cursor.execute(sql, address)
-        self.con.commit()
+        sql1 = f'select * from riskarea where area = %s'
+        self.cursor.execute(sql1, address)
+        if self.cursor.rowcount == 0:
+            return 0
+        else:
+            sql2 = f'delete from riskarea where area = %s'
+            self.cursor.execute(sql2, address)
+            self.con.commit()
+            return 1
     
-    def code_commit(self, sno, massage:str):
+    def code_commit(self, sno:str, state:str, massage:str):
         qr = qrcode.QRCode()
         qr.add_data(massage)
-        img = qr.make_image()
+        if state == '健康':
+            img = qr.make_image(fill_color='green')
+        elif state == '存疑':
+            img = qr.make_image(fill_color='yellow')
+        else:
+            img = qr.make_image(fill_color='red')
         img_byte = BytesIO()
         img.save(img_byte, format='PNG')
         binary = img_byte.getvalue()
-        sql = f'insert into healthy values(%s, %s)'
-        self.cursor.execute(sql, (sno, binary))
+        sql1 = f'select * from healthy where sno = %s'
+        self.cursor.execute(sql1, sno)
+        if self.cursor.rowcount == 0:
+            sql2 = f'insert into healthy values(%s, %s)'
+            self.cursor.execute(sql2, (sno, binary))
+        else:
+            sql2 = f'update healthy set QRcode = %s where sno = %s'
+            self.cursor.execute(sql2, (binary, sno))
         self.con.commit()
 
     def close(self):
