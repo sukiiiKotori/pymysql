@@ -92,7 +92,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
             query="insert into student values ('{}','{}','{}','{}');".format(sno,password,cno,name)
             print(query)
             if Thread1.mysql.insert(query) == 1:
-                self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
+                self.label.setText('          注册成功！\n      请返回登陆界面')
             else:
                 self.label.setText('          注册失败！\n       该用户已存在')
         
@@ -108,7 +108,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         else:
             query="insert into surveyor values ('{}','{}','{}')".format(wno, wname, password)
             if Thread1.mysql.insert(query) == 1:
-                self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
+                self.label.setText('          注册成功！\n      请返回登陆界面')
             else:
                 self.label.setText('          注册失败！\n       该用户已存在')
         
