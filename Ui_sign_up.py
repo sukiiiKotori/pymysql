@@ -69,7 +69,7 @@ class Ui_MainWindow_signup(object):
 "font: 10pt \"微软雅黑\";\n"
 "border-radius:10px\n"
 "")
-        self.cno_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.cno_lineEdit.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.cno_lineEdit.setObjectName("cno_lineEdit")
         self.student_pushButton = QtWidgets.QPushButton(self.student)
         self.student_pushButton.setGeometry(QtCore.QRect(170, 350, 121, 41))
@@ -141,7 +141,7 @@ class Ui_MainWindow_signup(object):
 "font: 10pt \"微软雅黑\";\n"
 "border-radius:10px\n"
 "")
-        self.manage_cno_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.manage_cno_lineEdit.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.manage_cno_lineEdit.setObjectName("manage_cno_lineEdit")
         self.password_confirm_lineEdit_2 = QtWidgets.QLineEdit(self.teacher)
         self.password_confirm_lineEdit_2.setGeometry(QtCore.QRect(120, 280, 221, 41))
@@ -299,6 +299,24 @@ class Ui_MainWindow_signup(object):
         self.retranslateUi(MainWindow_signup)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_signup)
+        MainWindow_signup.setTabOrder(self.name_lineEdit, self.sno_lineEdit)
+        MainWindow_signup.setTabOrder(self.sno_lineEdit, self.cno_lineEdit)
+        MainWindow_signup.setTabOrder(self.cno_lineEdit, self.password_lineEdit)
+        MainWindow_signup.setTabOrder(self.password_lineEdit, self.password_comfirm_lineEdit)
+        MainWindow_signup.setTabOrder(self.password_comfirm_lineEdit, self.name_lineEdit_2)
+        MainWindow_signup.setTabOrder(self.name_lineEdit_2, self.tno_lineEdit)
+        MainWindow_signup.setTabOrder(self.tno_lineEdit, self.manage_cno_lineEdit)
+        MainWindow_signup.setTabOrder(self.manage_cno_lineEdit, self.password_lineEdit_2)
+        MainWindow_signup.setTabOrder(self.password_lineEdit_2, self.password_confirm_lineEdit_2)
+        MainWindow_signup.setTabOrder(self.password_confirm_lineEdit_2, self.name_lineEdit_3)
+        MainWindow_signup.setTabOrder(self.name_lineEdit_3, self.wno_lineEdit)
+        MainWindow_signup.setTabOrder(self.wno_lineEdit, self.password_lineEdit_3)
+        MainWindow_signup.setTabOrder(self.password_lineEdit_3, self.password_confirm_lineEdit_3)
+        MainWindow_signup.setTabOrder(self.password_confirm_lineEdit_3, self.student_pushButton)
+        MainWindow_signup.setTabOrder(self.student_pushButton, self.tabWidget)
+        MainWindow_signup.setTabOrder(self.tabWidget, self.teacher_pushButton)
+        MainWindow_signup.setTabOrder(self.teacher_pushButton, self.surveyor_pushButton)
+        MainWindow_signup.setTabOrder(self.surveyor_pushButton, self.return_to_login)
 
     def retranslateUi(self, MainWindow_signup):
         _translate = QtCore.QCoreApplication.translate

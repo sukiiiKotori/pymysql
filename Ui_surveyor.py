@@ -163,6 +163,13 @@ class Ui_Form(object):
 "}\n"
 "")
         self.button2.setObjectName("button2")
+        self.textBrowser_2 = QtWidgets.QTextBrowser(Form)
+        self.textBrowser_2.setGeometry(QtCore.QRect(0, 0, 651, 111))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(36)
+        self.textBrowser_2.setFont(font)
+        self.textBrowser_2.setObjectName("textBrowser_2")
 
         self.retranslateUi(Form)
         self.tabWidget.setCurrentIndex(0)

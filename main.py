@@ -4,6 +4,7 @@ from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
 from Thread_Mysql import Thread_mysql
+from initsur import SurMainWindow
 
 class log_in(QMainWindow,Ui_MainWindow_login):
     def __init__(self, parent=None):
@@ -25,7 +26,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def display_stu(self):
         username=self.username_lineEdit.text()
         password=self.password_lineEdit.text()
-        (num,cur)=Thread1.mysql.select('select spassword from student where sno={}'.format(username))
+        (num,cur)=Thread1.mysql.select("select spassword from student where sno='{}'".format(username))
         if num==0:
             self.label_2.setText('        登陆失败！\n账户不存在...请重试')
         else :
@@ -39,7 +40,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def display_tea(self):
         username=self.username_lineEdit_2.text()
         password=self.password_lineEdit_2.text()
-        (num,cur)=Thread1.mysql.select('select tpassword from teacher where tno={}'.format(username))
+        (num,cur)=Thread1.mysql.select("select tpassword from teacher where tno='{}'".format(username))
         if num==0:
             self.label_2.setText('        登陆失败！\n账户不存在...请重试')
         else :
@@ -53,14 +54,15 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def display_sur(self):
         username=self.username_lineEdit_3.text()
         password=self.password_lineEdit_3.text()
-        (num,cur)=Thread1.mysql.select('select supassword from surveyor where wno={}'.format(username))
+        (num,cur)=Thread1.mysql.select("select supassword from surveyor where wno='{}'".format(username))
         if num==0:
             self.label_2.setText('        登陆失败！\n账户不存在...请重试')
         else :
             password_fromDB=cur.fetchone()[0]
             if password_fromDB==password:
                 self.close()
-                Sign_up.show()
+                surWin.init(username)
+                surWin.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
@@ -82,16 +84,17 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         name=self.name_lineEdit.text()
         sno=self.sno_lineEdit.text()
         cno=self.cno_lineEdit.text()
-        password=self.password_comfirm_lineEdit.text()
+        password=self.password_lineEdit.text()
         password_confirm=self.password_comfirm_lineEdit.text()
         if password!=password_confirm:
             self.label.setText('  两次输入的密码不一致\n             请重试')
         else:
-            query='insert into student values ({},{},{},{})'.format(sno,password,cno,name)
+            query="insert into student values ('{}','{}','{}','{}');".format(sno,password,cno,name)
+            print(query)
             if Thread1.mysql.insert(query) == 1:
                 self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
             else:
-                self.lable.setText('           注册失败！\n        该用户已存在')
+                self.label.setText('          注册失败！\n       该用户已存在')
         
     def sign_tea(self):
         pass
@@ -113,7 +116,7 @@ if __name__ == "__main__":
     Thread1.mysql_signal.connect(Log_in.show_connect_success)
     Thread1.start()
     
-
+    surWin = SurMainWindow()
     Sign_up=sign_up()
     Student=student()
     

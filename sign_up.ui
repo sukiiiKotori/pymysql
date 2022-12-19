@@ -137,7 +137,7 @@ border-radius:10px
 </string>
       </property>
       <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
+       <enum>QLineEdit::Normal</enum>
       </property>
       <property name="placeholderText">
        <string>班号</string>
@@ -283,7 +283,7 @@ border-radius:10px
 </string>
       </property>
       <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
+       <enum>QLineEdit::Normal</enum>
       </property>
       <property name="placeholderText">
        <string>管理的班级号</string>
@@ -586,6 +586,27 @@ QPushButton:pressed{
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>name_lineEdit</tabstop>
+  <tabstop>sno_lineEdit</tabstop>
+  <tabstop>cno_lineEdit</tabstop>
+  <tabstop>password_lineEdit</tabstop>
+  <tabstop>password_comfirm_lineEdit</tabstop>
+  <tabstop>name_lineEdit_2</tabstop>
+  <tabstop>tno_lineEdit</tabstop>
+  <tabstop>manage_cno_lineEdit</tabstop>
+  <tabstop>password_lineEdit_2</tabstop>
+  <tabstop>password_confirm_lineEdit_2</tabstop>
+  <tabstop>name_lineEdit_3</tabstop>
+  <tabstop>wno_lineEdit</tabstop>
+  <tabstop>password_lineEdit_3</tabstop>
+  <tabstop>password_confirm_lineEdit_3</tabstop>
+  <tabstop>student_pushButton</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>teacher_pushButton</tabstop>
+  <tabstop>surveyor_pushButton</tabstop>
+  <tabstop>return_to_login</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
