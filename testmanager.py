@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from Ui_manager import Ui_Manager
 import sys
 import json
+from remote import Mysql
 
 class ManagerMainWindow(QMainWindow, Ui_Manager):
     def __init__(self,parent =None):
@@ -11,6 +12,7 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.button1.clicked.connect(self.tab_change_0)
         self.button2.clicked.connect(self.tab_change_1)
         self.button3.clicked.connect(self.tab_change_2)
+        self.button6.clicked.connect(self.tubecommit)
         self.init_data() # 初始化数据
         self.init_ui() # 初始化UI
     def tab_change_0(self):
@@ -19,10 +21,21 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.tabWidget.setCurrentIndex(1)
     def tab_change_2(self):
         self.tabWidget.setCurrentIndex(2)
+        self.label_5.setText('请输入数据后点击提交')
     def init_data(self):
         # 读取json数据
         with open("./data.json", 'r', encoding='utf-8') as data:
             self.data_json = json.loads(data.read())
+    def tubecommit(self):
+        mysql = Mysql()
+        teid = self.lineEdit.text()
+        res = self.comboBox.currentText()
+        if teid == '':
+            self.label_5.setText('请输入试管编号后再提交！')
+        else:
+            mysql.commit_testtube(teid, res)
+            self.label_5.setText('提交成功！')
+            self.lineEdit.clear()
     # 初始化UI
     def init_ui(self):
         # 省选择器

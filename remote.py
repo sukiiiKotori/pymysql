@@ -45,6 +45,9 @@ class Mysql:
         self.cursor.execute(sql, wno)
         data = self.cursor.fetchone()
         return data
+    
+    def commit_testtube(self, teid:str, ):
+        pass
 
     def close(self):
         self.cursor.close()
