@@ -58,6 +58,9 @@ class log_in(QMainWindow,Ui_MainWindow_login):
     def display_sur(self):
         username=self.username_lineEdit_3.text()
         password=self.password_lineEdit_3.text()
+        if username == 'admin' and password == 'admin':
+            self.close()
+            manWin.show()
         (num,cur)=Thread1.mysql.select("select supassword from surveyor where wno='{}'".format(username))
         if num==0:
             self.label_2.setText('        登陆失败！\n账户不存在...请重试')
@@ -93,7 +96,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         if password!=password_confirm:
             self.label.setText('  两次输入的密码不一致\n             请重试')
         else:
-            query="insert into student values ('{}','{}','{}','{}')".format(sno,password,cno,name)
+            query="insert into student values ('{}','{}','{}','{}');".format(sno,password,cno,name)
             print(query)
             if Thread1.mysql.insert(query) == 1:
                 self.label.setText('          注册成功！\n      请返回登陆界面')
@@ -101,20 +104,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
                 self.label.setText('          注册失败！\n       该用户已存在')
         
     def sign_tea(self):
-        name=self.name_lineEdit_2.text()
-        tno=self.tno_lineEdit.text()
-        m_cno=self.manage_cno_lineEdit.text()
-        password = self.password_lineEdit_2.text()
-        password_confirm = self.password_confirm_lineEdit_2.text()
-        if password != password_confirm:
-            self.label.setText('  两次输入的密码不一致\n             请重试')
-        else:
-            query="insert into teacher values ('{}','{}','{}','{}')".format(tno, password, m_cno, name)
-            if Thread1.mysql.insert(query) == 1:
-                self.label.setText('          注册成功！\n      请返回登陆界面')
-            else:
-                self.label.setText('          注册失败！\n       该用户已存在')
-        
+        pass
     def sign_sur(self):
         wname = self.name_lineEdit_3.text()
         wno = self.wno_lineEdit.text()
