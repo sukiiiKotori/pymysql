@@ -4,17 +4,27 @@ from Ui_manager import Ui_Manager
 import sys
 import json
 from remote import Mysql
+import datetime
 
 class ManagerMainWindow(QMainWindow, Ui_Manager):
     def __init__(self,parent =None):
         super(ManagerMainWindow,self).__init__(parent)
         self.setupUi(self)
+        self.set_welcome_massage()
         self.button1.clicked.connect(self.tab_change_0)
         self.button2.clicked.connect(self.tab_change_1)
         self.button3.clicked.connect(self.tab_change_2)
+        self.button4.clicked.connect(self.commit_riskarea)
+        self.button5.clicked.connect(self.remove_riskarea)
         self.button6.clicked.connect(self.tubecommit)
         self.init_data() # 初始化数据
         self.init_ui() # 初始化UI
+    def set_welcome_massage(self):
+        cur = self.textBrowser.textCursor()
+        text = 'Welcome! Manager'
+        cur.insertText(text)
+        self.textBrowser.setTextCursor(cur)
+        self.textBrowser.ensureCursorVisible()
     def tab_change_0(self):
         self.tabWidget.setCurrentIndex(0)
     def tab_change_1(self):
@@ -36,6 +46,30 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
             mysql.commit_testtube(teid, res)
             self.label_5.setText('提交成功！')
             self.lineEdit.clear()
+    def commit_riskarea(self):
+        if self.comboBox_p1.currentText() == '--请选择省':
+            self.label_6.setText('                                     请选择省份信息')
+        elif self.comboBox_c1.currentText() == '--请选择市':
+            self.label_6.setText('                                     请选择城市信息')
+        elif self.comboBox_ct1.currentText() == '--请选择县':
+            self.label_6.setText('                                     请选择区县信息')
+        else:
+            mysql = Mysql()
+            address = self.comboBox_p1.currentText()+self.comboBox_c1.currentText()+self.comboBox_ct1.currentText()
+            mysql.commit_riskarea(address)
+            self.label_6.setText('       '+str(datetime.datetime.now())+'：提交成功')
+    def remove_riskarea(self):
+        if self.comboBox_p2.currentText() == '--请选择省':
+            self.label_7.setText('                                     请选择省份信息')
+        elif self.comboBox_c2.currentText() == '--请选择市':
+            self.label_7.setText('                                     请选择城市信息')
+        elif self.comboBox_ct2.currentText() == '--请选择县':
+            self.label_7.setText('                                     请选择区县信息')
+        else:
+            mysql = Mysql()
+            address = self.comboBox_p2.currentText()+self.comboBox_c2.currentText()+self.comboBox_ct2.currentText()
+            mysql.remove_riskarea(address)
+            self.label_7.setText('       '+str(datetime.datetime.now())+'：提交成功')
     # 初始化UI
     def init_ui(self):
         # 省选择器
@@ -53,9 +87,9 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.comboBox_c2.currentTextChanged.connect(self.slot_city_click1)
         # 县选择器
         self.comboBox_ct1.addItem("--请选择县")
-        self.comboBox_ct1.currentTextChanged.connect(self.slot_county_click)
+        # self.comboBox_ct1.currentTextChanged.connect(self.slot_county_click)
         self.comboBox_ct2.addItem("--请选择县")
-        self.comboBox_ct2.currentTextChanged.connect(self.slot_county_click1)
+        # self.comboBox_ct2.currentTextChanged.connect(self.slot_county_click1)
         self.layout = QtWidgets.QGridLayout()
         self.setLayout(self.layout)
         self.layout.addWidget(self.comboBox_p1, 0, 0, 1, 1)
@@ -109,10 +143,10 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
                     for c in data['Districts']:
                         self.comboBox_ct2.addItem(c['Name'])
             
-    def slot_county_click(self):
-        self.adrress=self.comboBox_p1.currentText()+self.comboBox_c1.currentText()+self.comboBox_ct1.currentText()
-    def slot_county_click1(self):
-        self.adrress=self.comboBox_p2.currentText()+self.comboBox_c2.currentText()+self.comboBox_ct2.currentText()
+    # def slot_county_click(self):
+    #     self.adrress=self.comboBox_p1.currentText()+self.comboBox_c1.currentText()+self.comboBox_ct1.currentText()
+    # def slot_county_click1(self):
+    #     self.adrress=self.comboBox_p2.currentText()+self.comboBox_c2.currentText()+self.comboBox_ct2.currentText()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

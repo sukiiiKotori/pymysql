@@ -46,8 +46,23 @@ class Mysql:
         data = self.cursor.fetchone()
         return data
     
-    def commit_testtube(self, teid:str, ):
-        pass
+    def commit_testtube(self, teid:str, res:str):
+        inres = 0
+        if res == '阳性':
+            inres = 1
+        sql = f'insert into testtube(teid, res) values(%s, %s)'
+        self.cursor.execute(sql, (teid, str(inres)))
+        self.con.commit()
+
+    def commit_riskarea(self, address:str):
+        sql = f'insert into riskarea values(%s)'
+        self.cursor.execute(sql, address)
+        self.con.commit()
+    
+    def remove_riskarea(self, address:str):
+        sql = f'delete from riskarea where area = %s'
+        self.cursor.execute(sql, address)
+        self.con.commit()
 
     def close(self):
         self.cursor.close()
