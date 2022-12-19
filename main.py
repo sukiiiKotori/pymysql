@@ -181,8 +181,23 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.button4.clicked.connect(self.commit_riskarea)
         self.button5.clicked.connect(self.remove_riskarea)
         self.button6.clicked.connect(self.tubecommit)
+        self.button7.clicked.connect(self.code_change)
         self.init_data() # 初始化数据
         self.init_ui() # 初始化UI
+    def code_change(self):
+        sno = self.lineEdit_2.text()
+        state = self.comboBox_2.currentText()
+        addi = self.lineEdit_3.text()
+        if sno == '':
+            self.label_12.setText("请输入学号再点击提交！")
+        else:
+            massage = '学号：' + sno + '\n' + '健康状态：' + state
+            if addi != '':
+                massage = massage + '\n' + '备注信息：' + addi
+            Thread1.mysql.code_commit(sno, massage)
+            self.label_12.setText("提交成功！")
+            self.lineEdit_2.clear()
+            self.lineEdit_3.clear()
     def set_welcome_massage(self):
         cur = self.textBrowser.textCursor()
         text = 'Welcome! Manager'
@@ -191,6 +206,7 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.textBrowser.ensureCursorVisible()
     def tab_change_0(self):
         self.tabWidget.setCurrentIndex(0)
+        self.label_12.setText("请输入信息后点击提交")
     def tab_change_1(self):
         self.tabWidget.setCurrentIndex(1)
     def tab_change_2(self):

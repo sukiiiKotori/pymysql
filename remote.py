@@ -1,5 +1,8 @@
 import pymysql
 import datetime
+import qrcode
+from PIL import Image
+from io import BytesIO
 
 class Mysql:
     def __init__(self) :
@@ -62,6 +65,17 @@ class Mysql:
     def remove_riskarea(self, address:str):
         sql = f'delete from riskarea where area = %s'
         self.cursor.execute(sql, address)
+        self.con.commit()
+    
+    def code_commit(self, sno, massage:str):
+        qr = qrcode.QRCode()
+        qr.add_data(massage)
+        img = qr.make_image()
+        img_byte = BytesIO()
+        img.save(img_byte, format='PNG')
+        binary = img_byte.getvalue()
+        sql = f'insert into healthy values(%s, %s)'
+        self.cursor.execute(sql, (sno, binary))
         self.con.commit()
 
     def close(self):

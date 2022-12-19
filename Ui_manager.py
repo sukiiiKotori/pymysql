@@ -20,6 +20,88 @@ class Ui_Manager(object):
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
+        self.label_8 = QtWidgets.QLabel(self.tab)
+        self.label_8.setGeometry(QtCore.QRect(10, 10, 611, 71))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(14)
+        self.label_8.setFont(font)
+        self.label_8.setStyleSheet("color: rgb(255, 0, 0);")
+        self.label_8.setObjectName("label_8")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.tab)
+        self.lineEdit_2.setGeometry(QtCore.QRect(210, 130, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label_9 = QtWidgets.QLabel(self.tab)
+        self.label_9.setGeometry(QtCore.QRect(100, 140, 61, 21))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_9.setFont(font)
+        self.label_9.setObjectName("label_9")
+        self.comboBox_2 = QtWidgets.QComboBox(self.tab)
+        self.comboBox_2.setGeometry(QtCore.QRect(208, 210, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.comboBox_2.setFont(font)
+        self.comboBox_2.setObjectName("comboBox_2")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.label_10 = QtWidgets.QLabel(self.tab)
+        self.label_10.setGeometry(QtCore.QRect(90, 210, 81, 21))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_10.setFont(font)
+        self.label_10.setObjectName("label_10")
+        self.label_11 = QtWidgets.QLabel(self.tab)
+        self.label_11.setGeometry(QtCore.QRect(90, 290, 81, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_11.setFont(font)
+        self.label_11.setObjectName("label_11")
+        self.button7 = QtWidgets.QPushButton(self.tab)
+        self.button7.setGeometry(QtCore.QRect(250, 370, 111, 31))
+        self.button7.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color: rgb(0, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(0,0,0);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color: rgb(0, 0, 0);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.button7.setObjectName("button7")
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.tab)
+        self.lineEdit_3.setGeometry(QtCore.QRect(210, 290, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.lineEdit_3.setFont(font)
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.label_12 = QtWidgets.QLabel(self.tab)
+        self.label_12.setGeometry(QtCore.QRect(230, 420, 241, 71))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(14)
+        self.label_12.setFont(font)
+        self.label_12.setStyleSheet("color: rgb(255, 0, 0);")
+        self.label_12.setObjectName("label_12")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -256,7 +338,7 @@ class Ui_Manager(object):
 "")
         self.button3.setObjectName("button3")
         self.textBrowser = QtWidgets.QTextBrowser(Form)
-        self.textBrowser.setGeometry(QtCore.QRect(0, 0, 811, 91))
+        self.textBrowser.setGeometry(QtCore.QRect(0, 0, 811, 71))
         font = QtGui.QFont()
         font.setFamily("Agency FB")
         font.setPointSize(36)
@@ -271,6 +353,15 @@ class Ui_Manager(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
+        self.label_8.setText(_translate("Form", "修改学生的健康码信息，如果该学生暂时没有健康码，会自动生成健康码"))
+        self.label_9.setText(_translate("Form", "学号"))
+        self.comboBox_2.setItemText(0, _translate("Form", "健康"))
+        self.comboBox_2.setItemText(1, _translate("Form", "存疑"))
+        self.comboBox_2.setItemText(2, _translate("Form", "患病"))
+        self.label_10.setText(_translate("Form", "健康状态"))
+        self.label_11.setText(_translate("Form", "备注信息"))
+        self.button7.setText(_translate("Form", "提交"))
+        self.label_12.setText(_translate("Form", "请输入信息后点击提交"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Form", "Tab 1"))
         self.label_3.setText(_translate("Form", "地区"))
         self.button4.setText(_translate("Form", "提交"))
