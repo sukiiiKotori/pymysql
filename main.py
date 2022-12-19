@@ -71,10 +71,20 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         super(sign_up,self).__init__(parent)
         self.setupUi(self)
         self.return_to_login.clicked.connect(self.goto_login)
-        #self.pushButton_3.clicked.connect()
+        self.student_pushButton.clicked.connect()
+        self.teacher_pushButton.clicked.connect()
+        self.surveyor_pushButton.clicked.connect()
     def goto_login(self):
         self.close()
         Log_in.show()
+
+    def sign_stu(self):
+        self.label.setText('  两次输入的密码不一致\n             请重试')
+        pass
+    def sign_tea(self):
+        pass
+    def sign_sur(self):
+        pass
         
 
 class student(QMainWindow,Ui_MainWindow):

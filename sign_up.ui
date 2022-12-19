@@ -23,7 +23,7 @@
       <x>170</x>
       <y>80</y>
       <width>461</width>
-      <height>461</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="font">
@@ -560,6 +560,28 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>返回登陆界面</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>530</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
