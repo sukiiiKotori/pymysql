@@ -176,7 +176,7 @@ QPushButton:pressed{
        <string>注册</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="username_lineEdit">
+     <widget class="QLineEdit" name="name_lineEdit">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -344,7 +344,7 @@ QPushButton:pressed{
        <string>注册</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="username_lineEdit_2">
+     <widget class="QLineEdit" name="name_lineEdit_2">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -381,7 +381,7 @@ border-radius:10px
      <attribute name="title">
       <string>核酸检测员注册</string>
      </attribute>
-     <widget class="QLineEdit" name="username_lineEdit_3">
+     <widget class="QLineEdit" name="name_lineEdit_3">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -566,7 +566,7 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>530</y>
+      <y>510</y>
       <width>221</width>
       <height>51</height>
      </rect>

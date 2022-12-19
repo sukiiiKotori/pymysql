@@ -71,16 +71,28 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
         super(sign_up,self).__init__(parent)
         self.setupUi(self)
         self.return_to_login.clicked.connect(self.goto_login)
-        self.student_pushButton.clicked.connect()
-        self.teacher_pushButton.clicked.connect()
-        self.surveyor_pushButton.clicked.connect()
+        self.student_pushButton.clicked.connect(self.sign_stu)
+        self.teacher_pushButton.clicked.connect(self.sign_tea)
+        self.surveyor_pushButton.clicked.connect(self.sign_sur)
     def goto_login(self):
         self.close()
         Log_in.show()
 
     def sign_stu(self):
-        self.label.setText('  两次输入的密码不一致\n             请重试')
-        pass
+        name=self.name_lineEdit.text()
+        sno=self.sno_lineEdit.text()
+        cno=self.cno_lineEdit.text()
+        password=self.password_comfirm_lineEdit.text()
+        password_confirm=self.password_comfirm_lineEdit.text()
+        if password!=password_confirm:
+            self.label.setText('  两次输入的密码不一致\n             请重试')
+        else:
+            query='insert into student values ({},{},{},{})'.format(sno,password,cno,name)
+            if Thread1.mysql.insert(query) == 1:
+                self.label.setText('          注册成功！\n2秒后自动返回登陆界面')
+            else:
+                self.lable.setText('           注册失败！\n        该用户已存在')
+        
     def sign_tea(self):
         pass
     def sign_sur(self):
