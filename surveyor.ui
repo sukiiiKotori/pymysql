@@ -312,6 +312,22 @@ QPushButton:pressed{
     <string>历史检测记录</string>
    </property>
   </widget>
+  <widget class="QTextBrowser" name="textBrowser_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>36</pointsize>
+    </font>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -39,6 +39,12 @@ class Mysql:
         self.cursor.execute(sql, wno)
         data = self.cursor.fetchall()
         return data
+    
+    def get_wname(self, wno:str):
+        sql = f'select wname from surveyor where wno = %s'
+        self.cursor.execute(sql, wno)
+        data = self.cursor.fetchone()
+        return data
 
     def close(self):
         self.cursor.close()
