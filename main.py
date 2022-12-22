@@ -1,14 +1,16 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow,QApplication
+from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
 from Ui_student import Ui_MainWindow
-from Thread_Mysql import Thread_mysql
+
 from Ui_manager import Ui_Manager
 from Ui_surveyor import Ui_Form
+from Thread_Mysql import Thread_mysql
 import json
 import datetime
-from PyQt5 import QtWidgets
+
 
 class log_in(QMainWindow,Ui_MainWindow_login):
     def __init__(self, parent=None):
@@ -37,7 +39,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
             password_fromDB=cur.fetchone()[0]
             if password_fromDB==password:
                 self.close()
-                Sign_up.show()
+                Student.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
@@ -124,6 +126,59 @@ class student(QMainWindow,Ui_MainWindow):
     def __init__(self, parent=None):
         super(student,self).__init__(parent)
         self.setupUi(self)
+        self.report_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(0)})
+        self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
+        self.health_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
+        self.tube_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(3)})
+        self.init_data()
+        self.init_ui()
+
+    def init(self,sno:str):
+        self.sno=sno
+
+    def init_data(self):
+        # 读取json数据
+        with open("./data.json", 'r', encoding='utf-8') as data:
+            self.data_json = json.loads(data.read())
+
+    def init_ui(self):
+        # 省选择器
+        self.comboBox_province.addItem("--请选择省")
+        self.comboBox_province.currentTextChanged.connect(self.slot_province_click)
+        for data in self.data_json:
+            self.comboBox_province.addItem(data['Name'])
+        # 市选择器
+        self.comboBox_city.addItem("--请选择市")
+        self.comboBox_city.currentTextChanged.connect(self.slot_city_click)
+        # 县选择器
+        self.comboBox_county.addItem("--请选择县")
+        self.comboBox_county.currentTextChanged.connect(self.slot_county_click)
+    # 省选择器点击响应
+    def slot_province_click(self):
+        current_province = self.comboBox_province.currentText()
+        if current_province.startswith('--') is False:
+            for data in self.data_json:
+                if data['Name'] == current_province:
+                    self.current_city_data = data['Cities']
+                    self.comboBox_city.clear()
+                    for c in data['Cities']:
+                        self.comboBox_city.addItem(c['Name'])
+        else:
+            self.comboBox_city.clear()
+            self.comboBox_county.clear()
+    # 市选择器点击响应
+    def slot_city_click(self):
+        current_city = self.comboBox_city.currentText()
+        if current_city.startswith('--') is False:
+            for data in self.current_city_data:
+                if data['Name'] == current_city:
+                    self.comboBox_county.clear()
+                    for c in data['Districts']:
+                        self.comboBox_county.addItem(c['Name'])
+
+    def slot_county_click(self):
+        self.adrress=self.comboBox_province.currentText()+self.comboBox_city.currentText()+self.comboBox_county.currentText()
+
 
 class SurMainWindow(QMainWindow, Ui_Form):
     def __init__(self,parent=None):
@@ -335,14 +390,16 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     Log_in=log_in()
+
     Thread1=Thread_mysql()
     Thread1.mysql_signal.connect(Log_in.show_connect_success)
     Thread1.start()
     
-    surWin = SurMainWindow()
-    manWin = ManagerMainWindow()
     Sign_up=sign_up()
     Student=student()
+
+    surWin = SurMainWindow()
+    manWin = ManagerMainWindow()
     
 
     sys.exit(app.exec_())

@@ -19,59 +19,652 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(220, 40, 521, 511))
+        self.tabWidget.setGeometry(QtCore.QRect(190, 30, 601, 531))
         self.tabWidget.setStyleSheet("QTabWidget::pane{\n"
 "    border:none;\n"
 "}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
-        self.name_lineEdit = QtWidgets.QLineEdit(self.tab)
-        self.name_lineEdit.setGeometry(QtCore.QRect(80, 70, 201, 41))
+        self.textEdit = QtWidgets.QTextEdit(self.tab)
+        self.textEdit.setGeometry(QtCore.QRect(10, 310, 551, 111))
+        self.textEdit.setStyleSheet("border: 2px solid #f3f3f3;\n"
+"border-color:rgb(77, 123, 255);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px;\n"
+"background-color: rgb(237, 242, 255);")
+        self.textEdit.setObjectName("textEdit")
+        self.label = QtWidgets.QLabel(self.tab)
+        self.label.setGeometry(QtCore.QRect(0, 20, 591, 41))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        font.setStrikeOut(False)
-        self.name_lineEdit.setFont(font)
-        self.name_lineEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
-"font: 10pt \"微软雅黑\";\n"
-"border-radius:10px\n"
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.comboBox_tem = QtWidgets.QComboBox(self.tab)
+        self.comboBox_tem.setGeometry(QtCore.QRect(180, 70, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_tem.setFont(font)
+        self.comboBox_tem.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
 "")
-        self.name_lineEdit.setText("")
-        self.name_lineEdit.setObjectName("name_lineEdit")
-        self.textEdit = QtWidgets.QTextEdit(self.tab)
-        self.textEdit.setGeometry(QtCore.QRect(30, 190, 321, 111))
-        self.textEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
-"font: 10pt \"微软雅黑\";\n"
-"border-radius:10px")
-        self.textEdit.setMarkdown("")
-        self.textEdit.setObjectName("textEdit")
+        self.comboBox_tem.setObjectName("comboBox_tem")
+        self.comboBox_tem.addItem("")
+        self.comboBox_tem.addItem("")
+        self.comboBox_tem.addItem("")
+        self.comboBox_tem.addItem("")
+        self.label_2 = QtWidgets.QLabel(self.tab)
+        self.label_2.setGeometry(QtCore.QRect(0, 140, 591, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.comboBox_province = QtWidgets.QComboBox(self.tab)
+        self.comboBox_province.setGeometry(QtCore.QRect(0, 190, 171, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_province.setFont(font)
+        self.comboBox_province.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_province.setObjectName("comboBox_province")
+        self.comboBox_city = QtWidgets.QComboBox(self.tab)
+        self.comboBox_city.setGeometry(QtCore.QRect(180, 190, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_city.setFont(font)
+        self.comboBox_city.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_city.setObjectName("comboBox_city")
+        self.comboBox_county = QtWidgets.QComboBox(self.tab)
+        self.comboBox_county.setGeometry(QtCore.QRect(390, 190, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_county.setFont(font)
+        self.comboBox_county.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_county.setObjectName("comboBox_county")
+        self.label_3 = QtWidgets.QLabel(self.tab)
+        self.label_3.setGeometry(QtCore.QRect(0, 260, 591, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.get_report = QtWidgets.QPushButton(self.tab)
+        self.get_report.setGeometry(QtCore.QRect(190, 450, 191, 41))
+        self.get_report.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.get_report.setObjectName("get_report")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
+        self.tabWidget_2 = QtWidgets.QTabWidget(self.tab_2)
+        self.tabWidget_2.setGeometry(QtCore.QRect(2, 10, 591, 481))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.tabWidget_2.setFont(font)
+        self.tabWidget_2.setObjectName("tabWidget_2")
+        self.tab_5 = QtWidgets.QWidget()
+        self.tab_5.setObjectName("tab_5")
+        self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.tab_5)
+        self.dateTimeEdit.setGeometry(QtCore.QRect(170, 60, 211, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.dateTimeEdit.setFont(font)
+        self.dateTimeEdit.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+" QDateTimeEdit::up-button{\n"
+"subcontrol-origin:border;\n"
+"     subcontrol-position:right;\n"
+"      60px;\n"
+"     height: 60px;                \n"
+" }\n"
+" QDateTimeEdit::down-button{subcontrol-origin:border;\n"
+"     subcontrol-position:left;\n"
+"      60px;\n"
+"     height: 60px;\n"
+" }")
+        self.dateTimeEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2022, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.dateTimeEdit.setObjectName("dateTimeEdit")
+        self.label_5 = QtWidgets.QLabel(self.tab_5)
+        self.label_5.setGeometry(QtCore.QRect(20, 10, 501, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.label_6 = QtWidgets.QLabel(self.tab_5)
+        self.label_6.setGeometry(QtCore.QRect(20, 120, 501, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_6.setFont(font)
+        self.label_6.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.lineEdit = QtWidgets.QLineEdit(self.tab_5)
+        self.lineEdit.setGeometry(QtCore.QRect(170, 170, 211, 41))
+        self.lineEdit.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/")
+        self.lineEdit.setObjectName("lineEdit")
+        self.label_7 = QtWidgets.QLabel(self.tab_5)
+        self.label_7.setGeometry(QtCore.QRect(20, 230, 501, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_7.setFont(font)
+        self.label_7.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_7.setObjectName("label_7")
+        self.comboBox_province_2 = QtWidgets.QComboBox(self.tab_5)
+        self.comboBox_province_2.setGeometry(QtCore.QRect(0, 280, 171, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_province_2.setFont(font)
+        self.comboBox_province_2.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_province_2.setObjectName("comboBox_province_2")
+        self.comboBox_city_2 = QtWidgets.QComboBox(self.tab_5)
+        self.comboBox_city_2.setGeometry(QtCore.QRect(180, 280, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_city_2.setFont(font)
+        self.comboBox_city_2.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_city_2.setObjectName("comboBox_city_2")
+        self.comboBox_county_2 = QtWidgets.QComboBox(self.tab_5)
+        self.comboBox_county_2.setGeometry(QtCore.QRect(390, 280, 201, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(10)
+        self.comboBox_county_2.setFont(font)
+        self.comboBox_county_2.setStyleSheet("/*QCombobox主体*/\n"
+"QComboBox {\n"
+"    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    text-align:bottom;\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"    /*min-height: 5em;*/\n"
+"\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(77, 123, 255);/*边框颜色*/\n"
+"\n"
+"    padding-left: 10px;/*左侧边距*/\n"
+"}\n"
+"/*QCombobox右侧按钮*/\n"
+"QComboBox::drop-down {\n"
+"    width: 15px;\n"
+"    border-left-width: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #f3f3f3;/*边框宽度、线形、颜色*/\n"
+"    background-color: rgba(237, 242, 255, 1);/*背景颜色*/\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    padding: 1px 2px 1px 2px;  /*针对于组合框中的文本内容*/\n"
+"    min-width: 9em;   /*# 组合框的最小宽度*/\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体每项的样式 */\n"
+"QComboBox QAbstractItemView::item {\n"
+"    border-radius: 15px;/*圆角*/\n"
+"    height: 30px;   /* 项的高度（设置pComboBox->setView(new QListView());后，该项才起作用） */\n"
+"    background-color: rgb(237, 242, 255);\n"
+"\n"
+"}\n"
+"\n"
+"/*以下部分不知为何不生效，有待调试*/\n"
+"/* 下拉后，整个下拉窗体越过每项的样式 */\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    color: #FFFFF0;\n"
+"       /* 整个下拉窗体越过每项的背景色 */\n"
+"    background-color: rgb(98, 0, 255);\n"
+"}\n"
+"\n"
+"/* 下拉后，整个下拉窗体被选择的每项的样式 */\n"
+"QComboBox QAbstractItemView::item:selected {\n"
+"    color: #FFFFF0;\n"
+"    background-color: rgb(0, 85, 200);\n"
+"}\n"
+"")
+        self.comboBox_county_2.setObjectName("comboBox_county_2")
+        self.get_report_2 = QtWidgets.QPushButton(self.tab_5)
+        self.get_report_2.setGeometry(QtCore.QRect(170, 340, 191, 41))
+        self.get_report_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.get_report_2.setObjectName("get_report_2")
+        self.tabWidget_2.addTab(self.tab_5, "")
+        self.tab_6 = QtWidgets.QWidget()
+        self.tab_6.setObjectName("tab_6")
+        self.tabWidget_2.addTab(self.tab_6, "")
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
+        self.label_4 = QtWidgets.QLabel(self.tab_3)
+        self.label_4.setGeometry(QtCore.QRect(170, 130, 240, 240))
+        self.label_4.setText("")
+        self.label_4.setObjectName("label_4")
+        self.label_8 = QtWidgets.QLabel(self.tab_3)
+        self.label_8.setGeometry(QtCore.QRect(30, 40, 501, 51))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_8.setFont(font)
+        self.label_8.setStyleSheet("background-color: rgb(130, 215, 255);\n"
+" border-radius: 10px;")
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
+        self.tableView = QtWidgets.QTableView(self.tab_4)
+        self.tableView.setGeometry(QtCore.QRect(130, 120, 256, 192))
+        self.tableView.setObjectName("tableView")
         self.tabWidget.addTab(self.tab_4, "")
-        self.login_stu = QtWidgets.QPushButton(self.centralwidget)
-        self.login_stu.setGeometry(QtCore.QRect(30, 150, 141, 41))
-        self.login_stu.setStyleSheet("QPushButton{\n"
+        self.report_button = QtWidgets.QPushButton(self.centralwidget)
+        self.report_button.setGeometry(QtCore.QRect(20, 150, 141, 41))
+        self.report_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -79,20 +672,20 @@ class Ui_MainWindow(object):
 "    padding-left:5px\n"
 "}\n"
 "")
-        self.login_stu.setObjectName("login_stu")
-        self.login_stu_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.login_stu_3.setGeometry(QtCore.QRect(30, 220, 141, 41))
-        self.login_stu_3.setStyleSheet("QPushButton{\n"
+        self.report_button.setObjectName("report_button")
+        self.leave_button = QtWidgets.QPushButton(self.centralwidget)
+        self.leave_button.setGeometry(QtCore.QRect(20, 220, 141, 41))
+        self.leave_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -100,20 +693,20 @@ class Ui_MainWindow(object):
 "    padding-left:5px\n"
 "}\n"
 "")
-        self.login_stu_3.setObjectName("login_stu_3")
-        self.login_stu_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.login_stu_2.setGeometry(QtCore.QRect(30, 360, 141, 41))
-        self.login_stu_2.setStyleSheet("QPushButton{\n"
+        self.leave_button.setObjectName("leave_button")
+        self.tube_button = QtWidgets.QPushButton(self.centralwidget)
+        self.tube_button.setGeometry(QtCore.QRect(20, 360, 141, 41))
+        self.tube_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -121,20 +714,20 @@ class Ui_MainWindow(object):
 "    padding-left:5px\n"
 "}\n"
 "")
-        self.login_stu_2.setObjectName("login_stu_2")
-        self.login_stu_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.login_stu_4.setGeometry(QtCore.QRect(30, 290, 141, 41))
-        self.login_stu_4.setStyleSheet("QPushButton{\n"
+        self.tube_button.setObjectName("tube_button")
+        self.health_button = QtWidgets.QPushButton(self.centralwidget)
+        self.health_button.setGeometry(QtCore.QRect(20, 290, 141, 41))
+        self.health_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -142,22 +735,46 @@ class Ui_MainWindow(object):
 "    padding-left:5px\n"
 "}\n"
 "")
-        self.login_stu_4.setObjectName("login_stu_4")
+        self.health_button.setObjectName("health_button")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "学生管理"))
-        self.name_lineEdit.setPlaceholderText(_translate("MainWindow", "今日体温/℃"))
+        self.textEdit.setMarkdown(_translate("MainWindow", "若当前无明显症状填写无即可\n"
+"\n"
+""))
+        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'微软雅黑\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">若当前无明显症状填写无即可</p></body></html>"))
+        self.label.setText(_translate("MainWindow", "当日体温  "))
+        self.comboBox_tem.setItemText(0, _translate("MainWindow", "37.3℃以下"))
+        self.comboBox_tem.setItemText(1, _translate("MainWindow", "37.3℃~37.8℃"))
+        self.comboBox_tem.setItemText(2, _translate("MainWindow", "37.8℃~39.0℃"))
+        self.comboBox_tem.setItemText(3, _translate("MainWindow", "39.0℃以上"))
+        self.label_2.setText(_translate("MainWindow", "当日位置  "))
+        self.label_3.setText(_translate("MainWindow", "当前症状  "))
+        self.get_report.setText(_translate("MainWindow", "提交今日填报"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
+        self.dateTimeEdit.setDisplayFormat(_translate("MainWindow", "yyyy-M-d H:mm"))
+        self.label_5.setText(_translate("MainWindow", "离校时间"))
+        self.label_6.setText(_translate("MainWindow", "请假时长"))
+        self.label_7.setText(_translate("MainWindow", "请假去向"))
+        self.get_report_2.setText(_translate("MainWindow", "提交请假申请"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), _translate("MainWindow", "       请假申请        "))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), _translate("MainWindow", "       我的历史申请       "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+        self.label_8.setText(_translate("MainWindow", "我的健康码"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Tab 3"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 4"))
-        self.login_stu.setText(_translate("MainWindow", "疫情填报"))
-        self.login_stu_3.setText(_translate("MainWindow", "请假管理"))
-        self.login_stu_2.setText(_translate("MainWindow", "查看核酸结果"))
-        self.login_stu_4.setText(_translate("MainWindow", "查看健康码"))
+        self.report_button.setText(_translate("MainWindow", "疫情填报"))
+        self.leave_button.setText(_translate("MainWindow", "请假管理"))
+        self.tube_button.setText(_translate("MainWindow", "查看核酸结果"))
+        self.health_button.setText(_translate("MainWindow", "查看健康码"))
