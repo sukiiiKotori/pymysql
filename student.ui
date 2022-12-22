@@ -969,10 +969,10 @@ QPushButton:pressed{
      <widget class="QLabel" name="image">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>130</y>
-        <width>240</width>
-        <height>240</height>
+        <x>140</x>
+        <y>120</y>
+        <width>280</width>
+        <height>280</height>
        </rect>
       </property>
       <property name="text">
@@ -1011,7 +1011,7 @@ QPushButton:pressed{
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>390</y>
+        <y>440</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -1040,6 +1040,9 @@ QPushButton:pressed{
        <string>查看</string>
       </property>
      </widget>
+     <zorder>label_8</zorder>
+     <zorder>health_show_button</zorder>
+     <zorder>image</zorder>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">

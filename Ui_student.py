@@ -646,7 +646,7 @@ class Ui_MainWindow(object):
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.image = QtWidgets.QLabel(self.tab_3)
-        self.image.setGeometry(QtCore.QRect(170, 130, 240, 240))
+        self.image.setGeometry(QtCore.QRect(140, 120, 280, 280))
         self.image.setText("")
         self.image.setObjectName("image")
         self.label_8 = QtWidgets.QLabel(self.tab_3)
@@ -662,7 +662,7 @@ class Ui_MainWindow(object):
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
         self.label_8.setObjectName("label_8")
         self.health_show_button = QtWidgets.QPushButton(self.tab_3)
-        self.health_show_button.setGeometry(QtCore.QRect(210, 390, 141, 41))
+        self.health_show_button.setGeometry(QtCore.QRect(210, 440, 141, 41))
         self.health_show_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
@@ -682,6 +682,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.health_show_button.setObjectName("health_show_button")
+        self.label_8.raise_()
+        self.health_show_button.raise_()
+        self.image.raise_()
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")

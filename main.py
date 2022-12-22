@@ -1,4 +1,5 @@
 import sys
+import time
 from PyQt5.QtWidgets import QMainWindow,QApplication
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
@@ -146,16 +147,24 @@ class student(QMainWindow,Ui_MainWindow):
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
         self.health_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
         self.tube_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(3)})
-        self.health_show_button.connect(self.show_health_QRcode)
+        self.health_show_button.clicked.connect(self.show_health_QRcode)
         self.init_data()
         self.init_ui()
         self.image.setScaledContents(True)
 
     def init(self,sno:str):
         self.sno=sno
+        f=open('temp_QRcode.png','wb')
+        sql="select QRcode from healthy where sno='{}'".format(self.sno)
+        (num,cur)=Thread1.mysql.select(sql)
+        if num==0:
+            pass
+        else:
+            ImageByteStream=cur.fetchone()[0]
+            f.write(ImageByteStream)
 
-    def show_health_QRcode():
-        pass
+    def show_health_QRcode(self):
+        self.image.setPixmap(QPixmap('temp_QRcode.png'))
 
     def init_data(self):
         # 读取json数据
