@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow,QApplication
+from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
@@ -39,6 +40,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
             password_fromDB=cur.fetchone()[0]
             if password_fromDB==password:
                 self.close()
+                Student.init(username)
                 Student.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
@@ -106,7 +108,21 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
                 self.label.setText('          注册失败！\n       该用户已存在')
         
     def sign_tea(self):
-        pass
+        name=self.name_lineEdit_2.text()
+        tno=self.tno_lineEdit.text()
+        m_cno=self.manage_cno_lineEdit.text()
+        password=self.password_lineEdit_2.text()
+        password_confirm=self.password_confirm_lineEdit_2.text()
+        if password!=password_confirm:
+            self.label.setText('  两次输入的密码不一致\n             请重试')
+        else:
+            query="insert into teacher values ('{}','{}','{}','{}');".format(tno,password,m_cno,name)
+            print(query)
+            if Thread1.mysql.insert(query) == 1:
+                self.label.setText('          注册成功！\n      请返回登陆界面')
+            else:
+                self.label.setText('          注册失败！\n       该用户已存在')
+
     def sign_sur(self):
         wname = self.name_lineEdit_3.text()
         wno = self.wno_lineEdit.text()
@@ -130,11 +146,16 @@ class student(QMainWindow,Ui_MainWindow):
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
         self.health_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
         self.tube_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(3)})
+        self.health_show_button.connect(self.show_health_QRcode)
         self.init_data()
         self.init_ui()
+        self.image.setScaledContents(True)
 
     def init(self,sno:str):
         self.sno=sno
+
+    def show_health_QRcode():
+        pass
 
     def init_data(self):
         # 读取json数据
