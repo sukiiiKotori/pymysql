@@ -33,9 +33,9 @@ class Mysql:
         try:
             self.cursor.execute(query)
             self.con.commit()
-            return (1,'OK')
+            return 'OK'
         except BaseException as e:
-            return (0,e.__str__())
+            return e.args[1]
 
     def sign_in_db(self,username:str,password:str):
         pass

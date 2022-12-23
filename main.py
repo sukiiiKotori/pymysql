@@ -181,7 +181,7 @@ class student(QMainWindow,Ui_MainWindow):
                 self.label_report_1.setText('             今日已提交填报！')
 
     def leave(self):
-        date=self.dateTimeEdit.dateTime()
+        date=self.dateTimeEdit.dateTime().toString('yyyy-MM-dd HH:mm')
         time_lenth=self.lineEdit_leave.text()
         sql="insert into _leave_ values('{}','{}','{}','{}',0)"
         if time_lenth=='':
@@ -207,19 +207,13 @@ class student(QMainWindow,Ui_MainWindow):
             self.comboBox_province.addItem(data['Name'])
             self.comboBox_province_2.addItem(data['Name'])
 
-        self.comboBox_province.addItem("--请选择省")
         self.comboBox_province.currentTextChanged.connect(self.slot_province_click)
-        self.comboBox_province_2.addItem("--请选择省")
         self.comboBox_province_2.currentTextChanged.connect(self.slot_province_click_2)
 
-        self.comboBox_city.addItem("--请选择市")
         self.comboBox_city.currentTextChanged.connect(self.slot_city_click)
-        self.comboBox_city_2.addItem("--请选择市")
         self.comboBox_city_2.currentTextChanged.connect(self.slot_city_click_2)
 
-        self.comboBox_county.addItem("--请选择县")
         self.comboBox_county.currentTextChanged.connect(self.slot_county_click)
-        self.comboBox_county_2.addItem("--请选择县")
         self.comboBox_county_2.currentTextChanged.connect(self.slot_county_click_2)
 
     def slot_province_click(self):

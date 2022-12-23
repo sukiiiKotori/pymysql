@@ -221,6 +221,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择区/县</string>
+         </property>
+        </item>
        </widget>
        <widget class="QTextEdit" name="textEdit">
         <property name="geometry">
@@ -410,6 +415,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择省</string>
+         </property>
+        </item>
        </widget>
        <widget class="QComboBox" name="comboBox_city">
         <property name="geometry">
@@ -481,6 +491,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择市</string>
+         </property>
+        </item>
        </widget>
        <widget class="QLabel" name="label">
         <property name="geometry">
@@ -800,6 +815,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择省</string>
+         </property>
+        </item>
        </widget>
        <widget class="QComboBox" name="comboBox_city_2">
         <property name="geometry">
@@ -871,6 +891,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择市</string>
+         </property>
+        </item>
        </widget>
        <widget class="QComboBox" name="comboBox_county_2">
         <property name="geometry">
@@ -942,6 +967,11 @@ QComboBox QAbstractItemView::item:selected {
 }
 </string>
         </property>
+        <item>
+         <property name="text">
+          <string>--请选择区/县</string>
+         </property>
+        </item>
        </widget>
        <widget class="QPushButton" name="get_leave">
         <property name="geometry">

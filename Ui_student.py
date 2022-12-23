@@ -159,6 +159,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_county.setObjectName("comboBox_county")
+        self.comboBox_county.addItem("")
         self.textEdit = QtWidgets.QTextEdit(self.tab_7)
         self.textEdit.setGeometry(QtCore.QRect(10, 290, 551, 91))
         self.textEdit.setStyleSheet("border: 2px solid #f3f3f3;\n"
@@ -272,6 +273,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_province.setObjectName("comboBox_province")
+        self.comboBox_province.addItem("")
         self.comboBox_city = QtWidgets.QComboBox(self.tab_7)
         self.comboBox_city.setGeometry(QtCore.QRect(180, 180, 201, 41))
         font = QtGui.QFont()
@@ -332,6 +334,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_city.setObjectName("comboBox_city")
+        self.comboBox_city.addItem("")
         self.label = QtWidgets.QLabel(self.tab_7)
         self.label.setGeometry(QtCore.QRect(0, 20, 591, 41))
         font = QtGui.QFont()
@@ -506,6 +509,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_province_2.setObjectName("comboBox_province_2")
+        self.comboBox_province_2.addItem("")
         self.comboBox_city_2 = QtWidgets.QComboBox(self.tab_5)
         self.comboBox_city_2.setGeometry(QtCore.QRect(180, 280, 201, 41))
         font = QtGui.QFont()
@@ -566,6 +570,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_city_2.setObjectName("comboBox_city_2")
+        self.comboBox_city_2.addItem("")
         self.comboBox_county_2 = QtWidgets.QComboBox(self.tab_5)
         self.comboBox_county_2.setGeometry(QtCore.QRect(390, 280, 201, 41))
         font = QtGui.QFont()
@@ -626,6 +631,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox_county_2.setObjectName("comboBox_county_2")
+        self.comboBox_county_2.addItem("")
         self.get_leave = QtWidgets.QPushButton(self.tab_5)
         self.get_leave.setGeometry(QtCore.QRect(180, 350, 201, 41))
         self.get_leave.setStyleSheet("QPushButton{\n"
@@ -819,6 +825,7 @@ class Ui_MainWindow(object):
         self.comboBox_tem.setItemText(1, _translate("MainWindow", "37.3℃~37.8℃"))
         self.comboBox_tem.setItemText(2, _translate("MainWindow", "37.8℃~39.0℃"))
         self.comboBox_tem.setItemText(3, _translate("MainWindow", "39.0℃以上"))
+        self.comboBox_county.setItemText(0, _translate("MainWindow", "--请选择区/县"))
         self.textEdit.setMarkdown(_translate("MainWindow", "若当前无明显症状填写无即可\n"
 "\n"
 ""))
@@ -830,6 +837,8 @@ class Ui_MainWindow(object):
         self.get_report.setText(_translate("MainWindow", "提交今日填报"))
         self.label_2.setText(_translate("MainWindow", "当日位置  "))
         self.label_3.setText(_translate("MainWindow", "当前症状  "))
+        self.comboBox_province.setItemText(0, _translate("MainWindow", "--请选择省"))
+        self.comboBox_city.setItemText(0, _translate("MainWindow", "--请选择市"))
         self.label.setText(_translate("MainWindow", "当日体温  "))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), _translate("MainWindow", "              今日填报             "))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), _translate("MainWindow", "              我的历史填报            "))
@@ -838,6 +847,9 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "离校时间"))
         self.label_6.setText(_translate("MainWindow", "请假时长"))
         self.label_7.setText(_translate("MainWindow", "请假去向"))
+        self.comboBox_province_2.setItemText(0, _translate("MainWindow", "--请选择省"))
+        self.comboBox_city_2.setItemText(0, _translate("MainWindow", "--请选择市"))
+        self.comboBox_county_2.setItemText(0, _translate("MainWindow", "--请选择区/县"))
         self.get_leave.setText(_translate("MainWindow", "提交请假申请"))
         self.label_4.setText(_translate("MainWindow", "天"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), _translate("MainWindow", "              请假申请              "))
