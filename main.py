@@ -218,8 +218,13 @@ class student(QMainWindow,Ui_MainWindow_stu):
         elif self.address_leave=='':
             self.label_leave_1.setText('       未选择请假去向！')
         else:
-            (flag,info)=Thread1.mysql.insert_for_trigger(sql.format(self.sno,date,time_lenth,self.address_leave))
-            print(info)
+            info=Thread1.mysql.insert_for_trigger(sql.format(self.sno,date,time_lenth,self.address_leave))
+            if info=='OK':
+                self.label_leave_1.setText('       请假申请已提交！')
+            elif info=='不能请假去风险地区':
+                self.label_leave_1.setText('       该地区存在风险！')
+            else:
+                self.label_leave_1.setText('        请勿重复提交！')
         
     def history_leave(self):
         (_,cur)=Thread1.mysql.select("select date,time_lenth,area,is_approve from _leave_ where sno = '{}' order by date desc".format(self.sno))
@@ -331,11 +336,21 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
         self.report_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(0)})
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
         self.get_report.clicked.connect(self.report)
+        self.leave_button_2.clicked.connect(self.display_approve)
+        self.leave_button_3.clicked.connect(self.approve)
         self.tableWidget_report.verticalHeader().setVisible(False)
+        self.tableWidget_leave.verticalHeader().setVisible(False)
+        self.tableWidget_leave_2.verticalHeader().setVisible(False)
         self.tableWidget_report.setColumnWidth(0,110)
         self.tableWidget_report.setColumnWidth(1,140)
         self.tableWidget_report.setColumnWidth(2,100)
         self.tableWidget_report.setColumnWidth(3,225)
+
+        self.tableWidget_leave.setColumnWidth(0,80)
+        self.tableWidget_leave.setColumnWidth(1,110)
+        self.tableWidget_leave.setColumnWidth(2,170)
+        self.tableWidget_leave.setColumnWidth(3,60)
+        self.tableWidget_leave.setColumnWidth(4,195)
         
     def init(self,tno:str):
         self.tno=tno
@@ -364,6 +379,23 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
                 self.tableWidget_report.setItem(i, 2, QtWidgets.QTableWidgetItem(str(tp[0])))
                 self.tableWidget_report.setItem(i, 3, QtWidgets.QTableWidgetItem(str(tp[1])))
             i+=1
+
+    def display_approve(self):
+        self.tableWidget_leave.setRowCount(0)
+        (num,cur)=Thread1.mysql.select("select sname,sno,`date`,time_lenth,area from `view_teacher_1` NATURAL JOIN `_leave_` WHERE `is_approve`='是'")
+        i=0
+        for row in cur.fetchall():
+            row_count=self.tableWidget_leave.rowCount()
+            self.tableWidget_leave.insertRow(row_count)
+            for j in range(3):
+                self.tableWidget_leave.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            self.tableWidget_leave.setItem(i, 3, QtWidgets.QTableWidgetItem(str(row[3])+'天'))
+            self.tableWidget_leave.setItem(i, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+            i+=1
+        pass
+
+    def approve(self):
+        pass
     
 
 class SurMainWindow(QMainWindow, Ui_Form):

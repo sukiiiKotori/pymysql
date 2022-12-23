@@ -22,7 +22,7 @@
      <rect>
       <x>10</x>
       <y>220</y>
-      <width>171</width>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
@@ -55,7 +55,7 @@ QPushButton:pressed{
      <rect>
       <x>10</x>
       <y>290</y>
-      <width>171</width>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
@@ -86,9 +86,9 @@ QPushButton:pressed{
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>30</y>
-      <width>581</width>
+      <width>621</width>
       <height>561</height>
      </rect>
     </property>
@@ -107,7 +107,7 @@ QPushButton:pressed{
      <widget class="QTableWidget" name="tableWidget_report">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>80</y>
         <width>581</width>
         <height>311</height>
@@ -282,7 +282,7 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
      <widget class="QDateEdit" name="dateEdit">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>240</x>
         <y>20</y>
         <width>161</width>
         <height>41</height>
@@ -329,7 +329,7 @@ subcontrol-origin:border;
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>120</x>
         <y>30</y>
         <width>111</width>
         <height>21</height>
@@ -351,7 +351,7 @@ subcontrol-origin:border;
      <widget class="QPushButton" name="get_report">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>210</x>
         <y>420</y>
         <width>191</width>
         <height>41</height>
@@ -391,7 +391,7 @@ QPushButton:pressed{
        <rect>
         <x>0</x>
         <y>10</y>
-        <width>581</width>
+        <width>621</width>
         <height>511</height>
        </rect>
       </property>
@@ -406,14 +406,14 @@ QPushButton:pressed{
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>                 已批准                </string>
+        <string>                   已批准                  </string>
        </attribute>
        <widget class="QTableWidget" name="tableWidget_leave">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>40</y>
-          <width>581</width>
+          <width>621</width>
           <height>311</height>
          </rect>
         </property>
@@ -545,7 +545,7 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
@@ -556,37 +556,48 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>当日体温</string>
+          <string>离校时间</string>
          </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>填报地点</string>
+          <string>时长</string>
          </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>目的地</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
        </widget>
-       <widget class="QPushButton" name="get_report_2">
+       <widget class="QPushButton" name="leave_button_2">
         <property name="geometry">
          <rect>
-          <x>180</x>
+          <x>200</x>
           <y>370</y>
           <width>191</width>
           <height>41</height>
@@ -619,14 +630,14 @@ QPushButton:pressed{
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>                 未批准                 </string>
+        <string>                  未批准                  </string>
        </attribute>
        <widget class="QTableWidget" name="tableWidget_leave_2">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>40</y>
-          <width>581</width>
+          <width>621</width>
           <height>311</height>
          </rect>
         </property>
@@ -758,7 +769,7 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
@@ -769,32 +780,87 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>当日体温</string>
+          <string>离校时间</string>
          </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>填报地点</string>
+          <string>请假时长</string>
          </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
-           <pointsize>12</pointsize>
+           <pointsize>11</pointsize>
           </font>
          </property>
         </column>
+        <column>
+         <property name="text">
+          <string>目的地</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>通过</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="leave_button_3">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>370</y>
+          <width>191</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color:rgb(46, 154, 255);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(46, 154, 255);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color:rgb(46, 154, 255);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+        </property>
+        <property name="text">
+         <string>批准请假</string>
+        </property>
        </widget>
       </widget>
      </widget>
