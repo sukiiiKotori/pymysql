@@ -42,7 +42,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>10</y>
+        <y>20</y>
         <width>601</width>
         <height>541</height>
        </rect>
@@ -552,15 +552,202 @@ QComboBox QAbstractItemView::item:selected {
        <attribute name="title">
         <string>              我的历史填报            </string>
        </attribute>
-       <widget class="QTableView" name="tableView_report">
+       <widget class="QPushButton" name="get_report_2">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>90</y>
-          <width>256</width>
-          <height>192</height>
+          <x>190</x>
+          <y>400</y>
+          <width>191</width>
+          <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color:rgb(46, 154, 255);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(46, 154, 255);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color:rgb(46, 154, 255);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+        </property>
+        <property name="text">
+         <string>显示近7日填报</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_report">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>51</y>
+          <width>571</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/********QTableWidget*********/
+QHeaderView{							/*设置标题(包括垂直+水平的)*/
+	
+			  font-size: 19px;				/*11榜*/
+	      border: 1px solid rgb(255, 255, 255);
+       /* border-bottom: 2px solid rgb(35, 100, 224); 		下边框深蓝色*/
+        background: rgb(100, 188, 238);				/*背景浅蓝色*/ 
+	      min-height:40px;
+	       
+} 
+ 
+ 
+QHeaderView::section:horizontal { 					/*设置标题(水平的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: transparent;
+        padding-left: 2px;
+        min-width:60px;
+}
+QHeaderView::section:horizontal:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:horizontal:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+QHeaderView::section:vertical { 					/*设置标题(垂直的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: rgb(255, 255, 255,180);
+        padding-top: 3px;
+        min-width:60px;
+        
+}
+QHeaderView::section:vertical:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:vertical:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+ 
+ 
+QHeaderView::up-arrow {						/*设置向上排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;					 	/*设置右内边距*/
+        image: url(:/arrow_up.png);
+        subcontrol-position: center right;
+}
+QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {
+     
+}
+QHeaderView::down-arrow {						/*设置向下排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;
+        image: url(:/arrow_down.png);
+        subcontrol-position: center right;
+}
+QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {
+     
+}
+QTableWidget,QTableView {
+				font-size: 17px;				/*10榜*/				
+				color : rgb(1,37,116);				
+        border: 2px solid rgb(100, 188, 238);		
+        background: rgb(248,248,248);
+        gridline-color: rgb(196,226,255);	
+        text-align: center;	
+        outline:0px;			/*禁止焦点*/
+        
+}
+QTableWidget::item,QTableView::item {							/*设置视图项*/
+        padding-left: 5px;
+        padding-right: 5px;
+        border: none; 
+        background: rgba(251,251,253,200);
+       
+       /* border-right: 1px solid rgb(100, 188, 238); */
+        /*border-bottom: 1px solid rgb(100, 188, 238);*/
+}
+QTableWidget::item:selected,QTableView::item:selected {				    /*设置选中的视图项*/
+        background: rgba(207,230,253,200);
+        color : rgb(1,37,116);				
+}
+ 
+ 
+QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected 
+{ 
+	background: rgb(250,250,250); 
+}
+ 
+QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
+{ 
+	background: rgb(240,247,254); 
+}</string>
+        </property>
+        <property name="autoScroll">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::NoPen</enum>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>123</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>37</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>填报日期</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当日体温</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>填报地点</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
        </widget>
       </widget>
      </widget>
@@ -1052,14 +1239,212 @@ QPushButton:pressed{
        <attribute name="title">
         <string>            我的历史申请            </string>
        </attribute>
-       <widget class="QTableView" name="tableView_leave">
+       <widget class="QTableWidget" name="tableWidget_leave">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>80</y>
-          <width>256</width>
-          <height>192</height>
+          <x>0</x>
+          <y>40</y>
+          <width>571</width>
+          <height>311</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/********QTableWidget*********/
+QHeaderView{							/*设置标题(包括垂直+水平的)*/
+	
+			  font-size: 15px;				/*11榜*/
+	      border: 1px solid rgb(255, 255, 255);
+       /* border-bottom: 2px solid rgb(35, 100, 224); 		下边框深蓝色*/
+        background: rgb(100, 188, 238);				/*背景浅蓝色*/ 
+	      min-height:40px;
+	       
+} 
+ 
+ 
+QHeaderView::section:horizontal { 					/*设置标题(水平的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: transparent;
+        padding-left: 2px;
+        min-width:60px;
+}
+QHeaderView::section:horizontal:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:horizontal:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+QHeaderView::section:vertical { 					/*设置标题(垂直的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: rgb(255, 255, 255,180);
+        padding-top: 3px;
+        min-width:60px;
+        
+}
+QHeaderView::section:vertical:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:vertical:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+ 
+ 
+QHeaderView::up-arrow {						/*设置向上排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;					 	/*设置右内边距*/
+        image: url(:/arrow_up.png);
+        subcontrol-position: center right;
+}
+QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {
+     
+}
+QHeaderView::down-arrow {						/*设置向下排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;
+        image: url(:/arrow_down.png);
+        subcontrol-position: center right;
+}
+QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {
+     
+}
+QTableWidget,QTableView {
+				font-size: 15px;				/*10榜*/				
+				color : rgb(1,37,116);				
+        border: 2px solid rgb(100, 188, 238);		
+        background: rgb(248,248,248);
+        gridline-color: rgb(196,226,255);	
+        text-align: center;	
+        outline:0px;			/*禁止焦点*/
+        
+}
+QTableWidget::item,QTableView::item {							/*设置视图项*/
+        padding-left: 5px;
+        padding-right: 5px;
+        border: none; 
+        background: rgba(251,251,253,200);
+       
+       /* border-right: 1px solid rgb(100, 188, 238); */
+        /*border-bottom: 1px solid rgb(100, 188, 238);*/
+}
+QTableWidget::item:selected,QTableView::item:selected {				    /*设置选中的视图项*/
+        background: rgba(207,230,253,200);
+        color : rgb(1,37,116);				
+}
+ 
+ 
+QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected 
+{ 
+	background: rgb(250,250,250); 
+}
+ 
+QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
+{ 
+	background: rgb(240,247,254); 
+}</string>
+        </property>
+        <property name="autoScroll">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::NoPen</enum>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>123</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>37</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>离校时间</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>请假时长</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>请假去向</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>是否通过</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="get_leave_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>380</y>
+          <width>201</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color:rgb(46, 154, 255);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(46, 154, 255);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color:rgb(46, 154, 255);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+        </property>
+        <property name="text">
+         <string>查看请假申请</string>
         </property>
        </widget>
       </widget>
@@ -1151,14 +1536,212 @@ QPushButton:pressed{
      <attribute name="title">
       <string>Tab 4</string>
      </attribute>
-     <widget class="QTableView" name="tableView_tube">
+     <widget class="QTableWidget" name="tableWidget_test">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>120</y>
-        <width>256</width>
-        <height>192</height>
+        <x>10</x>
+        <y>80</y>
+        <width>571</width>
+        <height>311</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/********QTableWidget*********/
+QHeaderView{							/*设置标题(包括垂直+水平的)*/
+	
+			  font-size: 15px;				/*11榜*/
+	      border: 1px solid rgb(255, 255, 255);
+       /* border-bottom: 2px solid rgb(35, 100, 224); 		下边框深蓝色*/
+        background: rgb(100, 188, 238);				/*背景浅蓝色*/ 
+	      min-height:40px;
+	       
+} 
+ 
+ 
+QHeaderView::section:horizontal { 					/*设置标题(水平的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: transparent;
+        padding-left: 2px;
+        min-width:60px;
+}
+QHeaderView::section:horizontal:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:horizontal:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+QHeaderView::section:vertical { 					/*设置标题(垂直的)*/
+        border: 1px solid rgb(255, 255, 255); 			/*白色间隔*/
+	      border-bottom: 0px;							/*下边框不需要颜色*/
+        color: rgb(2, 65, 132);
+        background: rgb(255, 255, 255,180);
+        padding-top: 3px;
+        min-width:60px;
+        
+}
+QHeaderView::section:vertical:hover {			/*设置鼠标停留状态*/
+        color: white;							/*字体白色*/
+        background: rgb(11,82,202);				/*背景深蓝色*/
+}
+QHeaderView::section:vertical:pressed {			/*设置鼠标按下状态*/
+        color: white;
+        background: rgb(39,106,220);				/*背景深蓝色减一点*/
+}
+ 
+ 
+QHeaderView::up-arrow {						/*设置向上排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;					 	/*设置右内边距*/
+        image: url(:/arrow_up.png);
+        subcontrol-position: center right;
+}
+QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {
+     
+}
+QHeaderView::down-arrow {						/*设置向下排序指针*/
+        width: 13px;
+        height: 11px;
+        padding-right: 10px;
+        image: url(:/arrow_down.png);
+        subcontrol-position: center right;
+}
+QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {
+     
+}
+QTableWidget,QTableView {
+				font-size: 15px;				/*10榜*/				
+				color : rgb(1,37,116);				
+        border: 2px solid rgb(100, 188, 238);		
+        background: rgb(248,248,248);
+        gridline-color: rgb(196,226,255);	
+        text-align: center;	
+        outline:0px;			/*禁止焦点*/
+        
+}
+QTableWidget::item,QTableView::item {							/*设置视图项*/
+        padding-left: 5px;
+        padding-right: 5px;
+        border: none; 
+        background: rgba(251,251,253,200);
+       
+       /* border-right: 1px solid rgb(100, 188, 238); */
+        /*border-bottom: 1px solid rgb(100, 188, 238);*/
+}
+QTableWidget::item:selected,QTableView::item:selected {				    /*设置选中的视图项*/
+        background: rgba(207,230,253,200);
+        color : rgb(1,37,116);				
+}
+ 
+ 
+QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected 
+{ 
+	background: rgb(250,250,250); 
+}
+ 
+QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
+{ 
+	background: rgb(240,247,254); 
+}</string>
+      </property>
+      <property name="autoScroll">
+       <bool>true</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::NoPen</enum>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>123</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>37</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>检测时间</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>检测员号</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>试管编号</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>检测结果</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="tube_button_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>420</y>
+        <width>261</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color:rgb(46, 154, 255);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(46, 154, 255);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color:rgb(46, 154, 255);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+      </property>
+      <property name="text">
+       <string>查看14天内核酸结果</string>
       </property>
      </widget>
     </widget>
@@ -1293,6 +1876,19 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>查看健康码</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>401</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

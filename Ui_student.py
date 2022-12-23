@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.tabWidget_3 = QtWidgets.QTabWidget(self.tab)
-        self.tabWidget_3.setGeometry(QtCore.QRect(0, 10, 601, 541))
+        self.tabWidget_3.setGeometry(QtCore.QRect(0, 20, 601, 541))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         font.setPointSize(12)
@@ -359,9 +359,159 @@ class Ui_MainWindow(object):
         self.tabWidget_3.addTab(self.tab_7, "")
         self.tab_8 = QtWidgets.QWidget()
         self.tab_8.setObjectName("tab_8")
-        self.tableView_report = QtWidgets.QTableView(self.tab_8)
-        self.tableView_report.setGeometry(QtCore.QRect(110, 90, 256, 192))
-        self.tableView_report.setObjectName("tableView_report")
+        self.get_report_2 = QtWidgets.QPushButton(self.tab_8)
+        self.get_report_2.setGeometry(QtCore.QRect(190, 400, 191, 41))
+        self.get_report_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.get_report_2.setObjectName("get_report_2")
+        self.tableWidget_report = QtWidgets.QTableWidget(self.tab_8)
+        self.tableWidget_report.setGeometry(QtCore.QRect(5, 51, 571, 311))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(-1)
+        self.tableWidget_report.setFont(font)
+        self.tableWidget_report.setStyleSheet("/********QTableWidget*********/\n"
+"QHeaderView{                            /*设置标题(包括垂直+水平的)*/\n"
+"    \n"
+"              font-size: 19px;                /*11榜*/\n"
+"          border: 1px solid rgb(255, 255, 255);\n"
+"       /* border-bottom: 2px solid rgb(35, 100, 224);         下边框深蓝色*/\n"
+"        background: rgb(100, 188, 238);                /*背景浅蓝色*/ \n"
+"          min-height:40px;\n"
+"           \n"
+"} \n"
+" \n"
+" \n"
+"QHeaderView::section:horizontal {                     /*设置标题(水平的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: transparent;\n"
+"        padding-left: 2px;\n"
+"        min-width:60px;\n"
+"}\n"
+"QHeaderView::section:horizontal:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:horizontal:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+"QHeaderView::section:vertical {                     /*设置标题(垂直的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: rgb(255, 255, 255,180);\n"
+"        padding-top: 3px;\n"
+"        min-width:60px;\n"
+"        \n"
+"}\n"
+"QHeaderView::section:vertical:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:vertical:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+" \n"
+" \n"
+"QHeaderView::up-arrow {                        /*设置向上排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;                         /*设置右内边距*/\n"
+"        image: url(:/arrow_up.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QHeaderView::down-arrow {                        /*设置向下排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;\n"
+"        image: url(:/arrow_down.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QTableWidget,QTableView {\n"
+"                font-size: 17px;                /*10榜*/                \n"
+"                color : rgb(1,37,116);                \n"
+"        border: 2px solid rgb(100, 188, 238);        \n"
+"        background: rgb(248,248,248);\n"
+"        gridline-color: rgb(196,226,255);    \n"
+"        text-align: center;    \n"
+"        outline:0px;            /*禁止焦点*/\n"
+"        \n"
+"}\n"
+"QTableWidget::item,QTableView::item {                            /*设置视图项*/\n"
+"        padding-left: 5px;\n"
+"        padding-right: 5px;\n"
+"        border: none; \n"
+"        background: rgba(251,251,253,200);\n"
+"       \n"
+"       /* border-right: 1px solid rgb(100, 188, 238); */\n"
+"        /*border-bottom: 1px solid rgb(100, 188, 238);*/\n"
+"}\n"
+"QTableWidget::item:selected,QTableView::item:selected {                    /*设置选中的视图项*/\n"
+"        background: rgba(207,230,253,200);\n"
+"        color : rgb(1,37,116);                \n"
+"}\n"
+" \n"
+" \n"
+"QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected \n"
+"{ \n"
+"    background: rgb(250,250,250); \n"
+"}\n"
+" \n"
+"QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected\n"
+"{ \n"
+"    background: rgb(240,247,254); \n"
+"}")
+        self.tableWidget_report.setAutoScroll(True)
+        self.tableWidget_report.setGridStyle(QtCore.Qt.NoPen)
+        self.tableWidget_report.setObjectName("tableWidget_report")
+        self.tableWidget_report.setColumnCount(3)
+        self.tableWidget_report.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_report.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_report.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_report.setHorizontalHeaderItem(2, item)
+        self.tableWidget_report.horizontalHeader().setDefaultSectionSize(123)
+        self.tableWidget_report.verticalHeader().setDefaultSectionSize(37)
         self.tabWidget_3.addTab(self.tab_8, "")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -672,9 +822,165 @@ class Ui_MainWindow(object):
         self.tabWidget_2.addTab(self.tab_5, "")
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
-        self.tableView_leave = QtWidgets.QTableView(self.tab_6)
-        self.tableView_leave.setGeometry(QtCore.QRect(120, 80, 256, 192))
-        self.tableView_leave.setObjectName("tableView_leave")
+        self.tableWidget_leave = QtWidgets.QTableWidget(self.tab_6)
+        self.tableWidget_leave.setGeometry(QtCore.QRect(0, 40, 571, 311))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(-1)
+        self.tableWidget_leave.setFont(font)
+        self.tableWidget_leave.setStyleSheet("/********QTableWidget*********/\n"
+"QHeaderView{                            /*设置标题(包括垂直+水平的)*/\n"
+"    \n"
+"              font-size: 15px;                /*11榜*/\n"
+"          border: 1px solid rgb(255, 255, 255);\n"
+"       /* border-bottom: 2px solid rgb(35, 100, 224);         下边框深蓝色*/\n"
+"        background: rgb(100, 188, 238);                /*背景浅蓝色*/ \n"
+"          min-height:40px;\n"
+"           \n"
+"} \n"
+" \n"
+" \n"
+"QHeaderView::section:horizontal {                     /*设置标题(水平的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: transparent;\n"
+"        padding-left: 2px;\n"
+"        min-width:60px;\n"
+"}\n"
+"QHeaderView::section:horizontal:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:horizontal:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+"QHeaderView::section:vertical {                     /*设置标题(垂直的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: rgb(255, 255, 255,180);\n"
+"        padding-top: 3px;\n"
+"        min-width:60px;\n"
+"        \n"
+"}\n"
+"QHeaderView::section:vertical:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:vertical:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+" \n"
+" \n"
+"QHeaderView::up-arrow {                        /*设置向上排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;                         /*设置右内边距*/\n"
+"        image: url(:/arrow_up.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QHeaderView::down-arrow {                        /*设置向下排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;\n"
+"        image: url(:/arrow_down.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QTableWidget,QTableView {\n"
+"                font-size: 15px;                /*10榜*/                \n"
+"                color : rgb(1,37,116);                \n"
+"        border: 2px solid rgb(100, 188, 238);        \n"
+"        background: rgb(248,248,248);\n"
+"        gridline-color: rgb(196,226,255);    \n"
+"        text-align: center;    \n"
+"        outline:0px;            /*禁止焦点*/\n"
+"        \n"
+"}\n"
+"QTableWidget::item,QTableView::item {                            /*设置视图项*/\n"
+"        padding-left: 5px;\n"
+"        padding-right: 5px;\n"
+"        border: none; \n"
+"        background: rgba(251,251,253,200);\n"
+"       \n"
+"       /* border-right: 1px solid rgb(100, 188, 238); */\n"
+"        /*border-bottom: 1px solid rgb(100, 188, 238);*/\n"
+"}\n"
+"QTableWidget::item:selected,QTableView::item:selected {                    /*设置选中的视图项*/\n"
+"        background: rgba(207,230,253,200);\n"
+"        color : rgb(1,37,116);                \n"
+"}\n"
+" \n"
+" \n"
+"QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected \n"
+"{ \n"
+"    background: rgb(250,250,250); \n"
+"}\n"
+" \n"
+"QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected\n"
+"{ \n"
+"    background: rgb(240,247,254); \n"
+"}")
+        self.tableWidget_leave.setAutoScroll(True)
+        self.tableWidget_leave.setGridStyle(QtCore.Qt.NoPen)
+        self.tableWidget_leave.setObjectName("tableWidget_leave")
+        self.tableWidget_leave.setColumnCount(4)
+        self.tableWidget_leave.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_leave.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_leave.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_leave.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_leave.setHorizontalHeaderItem(3, item)
+        self.tableWidget_leave.horizontalHeader().setDefaultSectionSize(123)
+        self.tableWidget_leave.verticalHeader().setDefaultSectionSize(37)
+        self.get_leave_2 = QtWidgets.QPushButton(self.tab_6)
+        self.get_leave_2.setGeometry(QtCore.QRect(180, 380, 201, 41))
+        self.get_leave_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.get_leave_2.setObjectName("get_leave_2")
         self.tabWidget_2.addTab(self.tab_6, "")
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QtWidgets.QWidget()
@@ -722,9 +1028,165 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
-        self.tableView_tube = QtWidgets.QTableView(self.tab_4)
-        self.tableView_tube.setGeometry(QtCore.QRect(130, 120, 256, 192))
-        self.tableView_tube.setObjectName("tableView_tube")
+        self.tableWidget_test = QtWidgets.QTableWidget(self.tab_4)
+        self.tableWidget_test.setGeometry(QtCore.QRect(10, 80, 571, 311))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(-1)
+        self.tableWidget_test.setFont(font)
+        self.tableWidget_test.setStyleSheet("/********QTableWidget*********/\n"
+"QHeaderView{                            /*设置标题(包括垂直+水平的)*/\n"
+"    \n"
+"              font-size: 15px;                /*11榜*/\n"
+"          border: 1px solid rgb(255, 255, 255);\n"
+"       /* border-bottom: 2px solid rgb(35, 100, 224);         下边框深蓝色*/\n"
+"        background: rgb(100, 188, 238);                /*背景浅蓝色*/ \n"
+"          min-height:40px;\n"
+"           \n"
+"} \n"
+" \n"
+" \n"
+"QHeaderView::section:horizontal {                     /*设置标题(水平的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: transparent;\n"
+"        padding-left: 2px;\n"
+"        min-width:60px;\n"
+"}\n"
+"QHeaderView::section:horizontal:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:horizontal:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+"QHeaderView::section:vertical {                     /*设置标题(垂直的)*/\n"
+"        border: 1px solid rgb(255, 255, 255);             /*白色间隔*/\n"
+"          border-bottom: 0px;                            /*下边框不需要颜色*/\n"
+"        color: rgb(2, 65, 132);\n"
+"        background: rgb(255, 255, 255,180);\n"
+"        padding-top: 3px;\n"
+"        min-width:60px;\n"
+"        \n"
+"}\n"
+"QHeaderView::section:vertical:hover {            /*设置鼠标停留状态*/\n"
+"        color: white;                            /*字体白色*/\n"
+"        background: rgb(11,82,202);                /*背景深蓝色*/\n"
+"}\n"
+"QHeaderView::section:vertical:pressed {            /*设置鼠标按下状态*/\n"
+"        color: white;\n"
+"        background: rgb(39,106,220);                /*背景深蓝色减一点*/\n"
+"}\n"
+" \n"
+" \n"
+"QHeaderView::up-arrow {                        /*设置向上排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;                         /*设置右内边距*/\n"
+"        image: url(:/arrow_up.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::up-arrow:hover, QHeaderView::up-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QHeaderView::down-arrow {                        /*设置向下排序指针*/\n"
+"        width: 13px;\n"
+"        height: 11px;\n"
+"        padding-right: 10px;\n"
+"        image: url(:/arrow_down.png);\n"
+"        subcontrol-position: center right;\n"
+"}\n"
+"QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {\n"
+"     \n"
+"}\n"
+"QTableWidget,QTableView {\n"
+"                font-size: 15px;                /*10榜*/                \n"
+"                color : rgb(1,37,116);                \n"
+"        border: 2px solid rgb(100, 188, 238);        \n"
+"        background: rgb(248,248,248);\n"
+"        gridline-color: rgb(196,226,255);    \n"
+"        text-align: center;    \n"
+"        outline:0px;            /*禁止焦点*/\n"
+"        \n"
+"}\n"
+"QTableWidget::item,QTableView::item {                            /*设置视图项*/\n"
+"        padding-left: 5px;\n"
+"        padding-right: 5px;\n"
+"        border: none; \n"
+"        background: rgba(251,251,253,200);\n"
+"       \n"
+"       /* border-right: 1px solid rgb(100, 188, 238); */\n"
+"        /*border-bottom: 1px solid rgb(100, 188, 238);*/\n"
+"}\n"
+"QTableWidget::item:selected,QTableView::item:selected {                    /*设置选中的视图项*/\n"
+"        background: rgba(207,230,253,200);\n"
+"        color : rgb(1,37,116);                \n"
+"}\n"
+" \n"
+" \n"
+"QTableView::item:alternate:!selected,QTableWidget::item:alternate:!selected,QListView::item:alternate:!selected \n"
+"{ \n"
+"    background: rgb(250,250,250); \n"
+"}\n"
+" \n"
+"QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected\n"
+"{ \n"
+"    background: rgb(240,247,254); \n"
+"}")
+        self.tableWidget_test.setAutoScroll(True)
+        self.tableWidget_test.setGridStyle(QtCore.Qt.NoPen)
+        self.tableWidget_test.setObjectName("tableWidget_test")
+        self.tableWidget_test.setColumnCount(4)
+        self.tableWidget_test.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_test.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_test.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_test.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget_test.setHorizontalHeaderItem(3, item)
+        self.tableWidget_test.horizontalHeader().setDefaultSectionSize(123)
+        self.tableWidget_test.verticalHeader().setDefaultSectionSize(37)
+        self.tube_button_2 = QtWidgets.QPushButton(self.tab_4)
+        self.tube_button_2.setGeometry(QtCore.QRect(140, 420, 261, 51))
+        self.tube_button_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.tube_button_2.setObjectName("tube_button_2")
         self.tabWidget.addTab(self.tab_4, "")
         self.report_button = QtWidgets.QPushButton(self.centralwidget)
         self.report_button.setGeometry(QtCore.QRect(20, 150, 141, 41))
@@ -810,6 +1272,10 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.health_button.setObjectName("health_button")
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setGeometry(QtCore.QRect(110, 0, 401, 41))
+        self.label_9.setText("")
+        self.label_9.setObjectName("label_9")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -841,6 +1307,13 @@ class Ui_MainWindow(object):
         self.comboBox_city.setItemText(0, _translate("MainWindow", "--请选择市"))
         self.label.setText(_translate("MainWindow", "当日体温  "))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), _translate("MainWindow", "              今日填报             "))
+        self.get_report_2.setText(_translate("MainWindow", "显示近7日填报"))
+        item = self.tableWidget_report.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "填报日期"))
+        item = self.tableWidget_report.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "当日体温"))
+        item = self.tableWidget_report.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "填报地点"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), _translate("MainWindow", "              我的历史填报            "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
         self.dateTimeEdit.setDisplayFormat(_translate("MainWindow", "yyyy-M-d H:mm"))
@@ -853,11 +1326,29 @@ class Ui_MainWindow(object):
         self.get_leave.setText(_translate("MainWindow", "提交请假申请"))
         self.label_4.setText(_translate("MainWindow", "天"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), _translate("MainWindow", "              请假申请              "))
+        item = self.tableWidget_leave.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "离校时间"))
+        item = self.tableWidget_leave.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "请假时长"))
+        item = self.tableWidget_leave.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "请假去向"))
+        item = self.tableWidget_leave.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "是否通过"))
+        self.get_leave_2.setText(_translate("MainWindow", "查看请假申请"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), _translate("MainWindow", "            我的历史申请            "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
         self.label_8.setText(_translate("MainWindow", "我的健康码"))
         self.health_show_button.setText(_translate("MainWindow", "查看"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Tab 3"))
+        item = self.tableWidget_test.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "检测时间"))
+        item = self.tableWidget_test.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "检测员号"))
+        item = self.tableWidget_test.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "试管编号"))
+        item = self.tableWidget_test.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "检测结果"))
+        self.tube_button_2.setText(_translate("MainWindow", "查看14天内核酸结果"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 4"))
         self.report_button.setText(_translate("MainWindow", "疫情填报"))
         self.leave_button.setText(_translate("MainWindow", "请假管理"))

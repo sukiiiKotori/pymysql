@@ -1,7 +1,7 @@
 import sys
 import time
 import datetime
-from PyQt5.QtWidgets import QMainWindow,QApplication
+from PyQt5.QtWidgets import QMainWindow,QApplication,QHeaderView
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
@@ -151,9 +151,28 @@ class student(QMainWindow,Ui_MainWindow):
         self.health_show_button.clicked.connect(self.show_health_QRcode)
         self.get_report.clicked.connect(self.report)
         self.get_leave.clicked.connect(self.leave)
+        self.get_report_2.clicked.connect(self.history_report)
+        self.get_leave_2.clicked.connect(self.history_leave)
+        self.tube_button_2.clicked.connect(self.history_test)
         self.init_data()
         self.init_ui()
         self.image.setScaledContents(True)
+        self.tableWidget_report.verticalHeader().setVisible(False)
+        self.tableWidget_leave.verticalHeader().setVisible(False)
+        self.tableWidget_test.verticalHeader().setVisible(False)
+        self.tableWidget_report.setColumnWidth(0,162)
+        self.tableWidget_report.setColumnWidth(1,162)
+        self.tableWidget_report.setColumnWidth(2,241)
+
+        self.tableWidget_leave.setColumnWidth(0,180)
+        self.tableWidget_leave.setColumnWidth(1,92)
+        self.tableWidget_leave.setColumnWidth(2,200)
+        self.tableWidget_leave.setColumnWidth(3,93)
+
+        self.tableWidget_test.setColumnWidth(0,200)
+        self.tableWidget_test.setColumnWidth(1,110)
+        self.tableWidget_test.setColumnWidth(2,130)
+        self.tableWidget_test.setColumnWidth(3,125)
 
     def init(self,sno:str):
         self.sno=sno
@@ -179,11 +198,21 @@ class student(QMainWindow,Ui_MainWindow):
                 self.label_report_1.setText('            今日填报提交成功！')
             else:
                 self.label_report_1.setText('             今日已提交填报！')
+    
+    def history_report(self):
+        (num,cur)=Thread1.mysql.select("select rtime,rtemp,rarea from report where sno = '{}' order by rtime desc limit 7".format(self.sno))
+        i=0
+        for row in cur.fetchall():
+            row_count=self.tableWidget_report.rowCount()
+            self.tableWidget_report.insertRow(row_count)
+            for j in range(3):
+                self.tableWidget_report.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            i+=1
 
     def leave(self):
         date=self.dateTimeEdit.dateTime().toString('yyyy-MM-dd HH:mm')
         time_lenth=self.lineEdit_leave.text()
-        sql="insert into _leave_ values('{}','{}','{}','{}',0)"
+        sql="insert into _leave_ values('{}','{}','{}','{}','否')"
         if time_lenth=='':
             self.label_leave_1.setText('       未填写请假时长！')
         elif self.address_leave=='':
@@ -191,8 +220,38 @@ class student(QMainWindow,Ui_MainWindow):
         else:
             (flag,info)=Thread1.mysql.insert_for_trigger(sql.format(self.sno,date,time_lenth,self.address_leave))
             print(info)
-        pass
+        
+    def history_leave(self):
+        (_,cur)=Thread1.mysql.select("select date,time_lenth,area,is_approve from _leave_ where sno = '{}' order by date desc".format(self.sno))
+        i=0
+        for row in cur.fetchall():
+            row_count=self.tableWidget_leave.rowCount()
+            self.tableWidget_leave.insertRow(row_count)
+            self.tableWidget_leave.setItem(i,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tableWidget_leave.setItem(i,1,QtWidgets.QTableWidgetItem(str(row[1])+'天'))
+            for j in range(2,4):
+                self.tableWidget_leave.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            i+=1
 
+    def history_test(self):
+        (num,cur)=Thread1.mysql.select("select tetime,wno,teid from `stutest` where sno='{}' order by tetime desc".format(self.sno))
+        i=0
+        tid_list=[]
+        for row in cur.fetchall():
+            row_count=self.tableWidget_test.rowCount()
+            self.tableWidget_test.insertRow(row_count)
+            tid_list.append(row[2])
+            for j in range(3):
+                self.tableWidget_test.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            i+=1
+        for row in range(num):
+            (num_in,cur_in)=Thread1.mysql.select("select `res` from `testtube` where `teid`='{}'".format(tid_list[row]))
+            if num_in==0 :
+                self.tableWidget_test.setItem(row, 3, QtWidgets.QTableWidgetItem('结果未出'))
+            elif cur_in.fetchone()[0] == 0:
+                self.tableWidget_test.setItem(row, 3, QtWidgets.QTableWidgetItem('阴性'))
+            else:
+                self.tableWidget_test.setItem(row, 3, QtWidgets.QTableWidgetItem('阳性'))
     
     def show_health_QRcode(self):
         self.image.setPixmap(QPixmap('temp_QRcode.png'))
