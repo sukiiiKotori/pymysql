@@ -266,7 +266,7 @@ class Ui_MainWindow_tea(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.tab_2)
-        self.tabWidget_2.setGeometry(QtCore.QRect(0, 10, 621, 511))
+        self.tabWidget_2.setGeometry(QtCore.QRect(0, 10, 621, 521))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         font.setPointSize(12)
@@ -552,7 +552,7 @@ class Ui_MainWindow_tea(object):
         self.tableWidget_leave_2.setAutoScroll(True)
         self.tableWidget_leave_2.setGridStyle(QtCore.Qt.NoPen)
         self.tableWidget_leave_2.setObjectName("tableWidget_leave_2")
-        self.tableWidget_leave_2.setColumnCount(6)
+        self.tableWidget_leave_2.setColumnCount(5)
         self.tableWidget_leave_2.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
@@ -584,16 +584,10 @@ class Ui_MainWindow_tea(object):
         font.setPointSize(11)
         item.setFont(font)
         self.tableWidget_leave_2.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        font = QtGui.QFont()
-        font.setFamily("微软雅黑")
-        font.setPointSize(11)
-        item.setFont(font)
-        self.tableWidget_leave_2.setHorizontalHeaderItem(5, item)
         self.tableWidget_leave_2.horizontalHeader().setDefaultSectionSize(123)
         self.tableWidget_leave_2.verticalHeader().setDefaultSectionSize(37)
         self.leave_button_3 = QtWidgets.QPushButton(self.tab_4)
-        self.leave_button_3.setGeometry(QtCore.QRect(200, 370, 191, 41))
+        self.leave_button_3.setGeometry(QtCore.QRect(330, 370, 191, 41))
         self.leave_button_3.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
@@ -613,13 +607,43 @@ class Ui_MainWindow_tea(object):
 "}\n"
 "")
         self.leave_button_3.setObjectName("leave_button_3")
+        self.leave_button_4 = QtWidgets.QPushButton(self.tab_4)
+        self.leave_button_4.setGeometry(QtCore.QRect(70, 370, 191, 41))
+        self.leave_button_4.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.leave_button_4.setObjectName("leave_button_4")
+        self.label_leave = QtWidgets.QLabel(self.tab_4)
+        self.label_leave.setGeometry(QtCore.QRect(150, 430, 301, 41))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_leave.setFont(font)
+        self.label_leave.setStyleSheet("color:rgb(255, 0, 0);")
+        self.label_leave.setText("")
+        self.label_leave.setObjectName("label_leave")
         self.tabWidget_2.addTab(self.tab_4, "")
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow_tea.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_tea)
         self.tabWidget.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_tea)
 
     def retranslateUi(self, MainWindow_tea):
@@ -658,11 +682,10 @@ class Ui_MainWindow_tea(object):
         item = self.tableWidget_leave_2.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow_tea", "离校时间"))
         item = self.tableWidget_leave_2.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow_tea", "请假时长"))
+        item.setText(_translate("MainWindow_tea", "时长"))
         item = self.tableWidget_leave_2.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow_tea", "目的地"))
-        item = self.tableWidget_leave_2.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow_tea", "通过"))
         self.leave_button_3.setText(_translate("MainWindow_tea", "批准请假"))
+        self.leave_button_4.setText(_translate("MainWindow_tea", "查看未批准学生"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow_tea", "                  未批准                  "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow_tea", "Tab 2"))

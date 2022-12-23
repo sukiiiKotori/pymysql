@@ -45,7 +45,10 @@ class Mysql:
             return 1
         except:
             return 0
-        pass
+    
+    def update(self,sno:str,date:str):
+        sql="UPDATE `_leave_` SET `is_approve`='是' WHERE sno='{}' AND `date`='{}'"
+        self.cursor.execute(sql.format(sno,date))
 
     def commit_test(self, sno:str, teid:str, wno:str):
         try:

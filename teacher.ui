@@ -392,7 +392,7 @@ QPushButton:pressed{
         <x>0</x>
         <y>10</y>
         <width>621</width>
-        <height>511</height>
+        <height>521</height>
        </rect>
       </property>
       <property name="font">
@@ -402,7 +402,7 @@ QPushButton:pressed{
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -797,7 +797,7 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
         </column>
         <column>
          <property name="text">
-          <string>请假时长</string>
+          <string>时长</string>
          </property>
          <property name="font">
           <font>
@@ -817,22 +817,11 @@ QTableView::item:!alternate:!selected,QTableWidget::item:!alternate:!selected
           </font>
          </property>
         </column>
-        <column>
-         <property name="text">
-          <string>通过</string>
-         </property>
-         <property name="font">
-          <font>
-           <family>微软雅黑</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-        </column>
        </widget>
        <widget class="QPushButton" name="leave_button_3">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>330</x>
           <y>370</y>
           <width>191</width>
           <height>41</height>
@@ -860,6 +849,61 @@ QPushButton:pressed{
         </property>
         <property name="text">
          <string>批准请假</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="leave_button_4">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>370</y>
+          <width>191</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 12pt &quot;微软雅黑&quot;;
+	
+	background-color:rgb(46, 154, 255);
+	color: rgb(255, 255, 255);
+	border: 3px solid rgb(46, 154, 255);
+	border-radius:10px
+}
+QPushButton:hover{
+	
+	color:rgb(46, 154, 255);
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	padding-top:5px;
+	padding-left:5px
+}
+</string>
+        </property>
+        <property name="text">
+         <string>查看未批准学生</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_leave">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>430</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

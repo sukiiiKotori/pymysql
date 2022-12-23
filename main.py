@@ -1,7 +1,7 @@
 import sys
 import time
 import datetime
-from PyQt5.QtWidgets import QMainWindow,QApplication,QHeaderView
+from PyQt5.QtWidgets import QMainWindow,QApplication,QHeaderView,QAbstractItemView
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
@@ -160,6 +160,9 @@ class student(QMainWindow,Ui_MainWindow_stu):
         self.tableWidget_report.verticalHeader().setVisible(False)
         self.tableWidget_leave.verticalHeader().setVisible(False)
         self.tableWidget_test.verticalHeader().setVisible(False)
+        self.tableWidget_report.setSelectionMode(QAbstractItemView.NoSelection)
+        self.tableWidget_leave.setSelectionMode(QAbstractItemView.NoSelection)
+        self.tableWidget_test.setSelectionMode(QAbstractItemView.NoSelection)
         self.tableWidget_report.setColumnWidth(0,162)
         self.tableWidget_report.setColumnWidth(1,162)
         self.tableWidget_report.setColumnWidth(2,241)
@@ -333,14 +336,21 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
     def __init__(self, parent=None):
         super(teacher,self).__init__(parent)
         self.setupUi(self)
+        self.current_sno=''
+        self.current_date=''
         self.report_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(0)})
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
         self.get_report.clicked.connect(self.report)
         self.leave_button_2.clicked.connect(self.display_approve)
         self.leave_button_3.clicked.connect(self.approve)
+        self.leave_button_4.clicked.connect(self.flush_approve)
+        self.tableWidget_leave_2.cellPressed.connect(self.getPosContent)
         self.tableWidget_report.verticalHeader().setVisible(False)
         self.tableWidget_leave.verticalHeader().setVisible(False)
         self.tableWidget_leave_2.verticalHeader().setVisible(False)
+        self.tableWidget_report.setSelectionMode(QAbstractItemView.NoSelection)
+        self.tableWidget_leave.setSelectionMode(QAbstractItemView.NoSelection)
+        self.tableWidget_leave_2.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.tableWidget_report.setColumnWidth(0,110)
         self.tableWidget_report.setColumnWidth(1,140)
         self.tableWidget_report.setColumnWidth(2,100)
@@ -351,6 +361,12 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
         self.tableWidget_leave.setColumnWidth(2,170)
         self.tableWidget_leave.setColumnWidth(3,60)
         self.tableWidget_leave.setColumnWidth(4,195)
+
+        self.tableWidget_leave_2.setColumnWidth(0,80)
+        self.tableWidget_leave_2.setColumnWidth(1,110)
+        self.tableWidget_leave_2.setColumnWidth(2,170)
+        self.tableWidget_leave_2.setColumnWidth(3,60)
+        self.tableWidget_leave_2.setColumnWidth(4,195)
         
     def init(self,tno:str):
         self.tno=tno
@@ -392,11 +408,32 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
             self.tableWidget_leave.setItem(i, 3, QtWidgets.QTableWidgetItem(str(row[3])+'天'))
             self.tableWidget_leave.setItem(i, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             i+=1
-        pass
+        
+
+    def flush_approve(self):
+        (num,cur)=Thread1.mysql.select("select sname,sno,`date`,time_lenth,area from `view_teacher_1` NATURAL JOIN `_leave_` WHERE `is_approve`='否'")
+        i=0
+        for row in cur.fetchall():
+            row_count=self.tableWidget_leave_2.rowCount()
+            self.tableWidget_leave_2.insertRow(row_count)
+            for j in range(3):
+                self.tableWidget_leave_2.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            self.tableWidget_leave_2.setItem(i, 3, QtWidgets.QTableWidgetItem(str(row[3])+'天'))
+            self.tableWidget_leave_2.setItem(i, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+            i+=1
 
     def approve(self):
-        pass
-    
+        if self.current_sno=='':
+            self.label_leave.setText('        请选中需要批准的请假')
+        else:
+            Thread1.mysql.update(self.current_sno,self.current_date)
+            self.label_leave.setText('                 批假成功')
+            self.current_sno=''
+            self.flush_approve()
+        
+    def getPosContent(self,row,col):
+        self.current_sno=self.tableWidget_leave_2.item(row,1).text()
+        self.current_date=self.tableWidget_leave_2.item(row,2).text()
 
 class SurMainWindow(QMainWindow, Ui_Form):
     def __init__(self,parent=None):
