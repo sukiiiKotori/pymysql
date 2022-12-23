@@ -41,9 +41,13 @@ class Mysql:
         pass
 
     def commit_test(self, sno:str, teid:str, wno:str):
-        sql = f'insert into stutest(sno, teid, wno, tetime) values(%s, %s, %s, %s)'
-        self.cursor.execute(sql, (sno, teid, wno, datetime.datetime.now()))
-        self.con.commit()
+        try:
+            sql = f'insert into stutest(sno, teid, wno, tetime) values(%s, %s, %s, %s)'
+            self.cursor.execute(sql, (sno, teid, wno, datetime.datetime.now()))
+            self.con.commit()
+            return '提交成功'
+        except:
+            return '请勿重复提交'
     
     def get_test_record(self, wno:str):
         sql = f'select * from stutest where wno = %s'
@@ -61,9 +65,13 @@ class Mysql:
         inres = 0
         if res == '阳性':
             inres = 1
-        sql = f'insert into testtube(teid, res) values(%s, %s)'
-        self.cursor.execute(sql, (teid, str(inres)))
-        self.con.commit()
+        try:
+            sql = f'insert into testtube(teid, res) values(%s, %s)'
+            self.cursor.execute(sql, (teid, str(inres)))
+            self.con.commit()
+            return '提交成功'
+        except BaseException as e:
+            return e.args[1]
 
     def commit_riskarea(self, address:str):
         sql1 = f'select * from riskarea where area = %s'
