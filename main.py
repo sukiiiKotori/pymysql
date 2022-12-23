@@ -290,8 +290,8 @@ class SurMainWindow(QMainWindow, Ui_Form):
         elif teid == '':
             self.label_4.setText('请输入试管编号后再提交！')
         else:
-            Thread1.mysql.commit_test(sno, teid, self.wno)
-            self.label_4.setText('提交成功！')
+            mes = Thread1.mysql.commit_test(sno, teid, self.wno)
+            self.label_4.setText(mes)
             self.lineEdit.clear()
             self.lineEdit_2.clear()
     def get_data(self):
@@ -364,8 +364,8 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         if teid == '':
             self.label_5.setText('请输入试管编号后再提交！')
         else:
-            Thread1.mysql.commit_testtube(teid, res)
-            self.label_5.setText('提交成功！')
+            res = Thread1.mysql.commit_testtube(teid, res)
+            self.label_5.setText(res)
             self.lineEdit.clear()
     def commit_riskarea(self):
         if self.comboBox_p1.currentText() == '--请选择省':
