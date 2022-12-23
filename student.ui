@@ -23,7 +23,7 @@
       <x>190</x>
       <y>10</y>
       <width>601</width>
-      <height>551</height>
+      <height>581</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -44,7 +44,7 @@
         <x>0</x>
         <y>10</y>
         <width>601</width>
-        <height>491</height>
+        <height>541</height>
        </rect>
       </property>
       <property name="font">
@@ -510,11 +510,43 @@ QComboBox QAbstractItemView::item:selected {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
+       <widget class="QLabel" name="label_report_1">
+        <property name="geometry">
+         <rect>
+          <x>131</x>
+          <y>450</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
         <string>              我的历史填报            </string>
        </attribute>
+       <widget class="QTableView" name="tableView_report">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>90</y>
+          <width>256</width>
+          <height>192</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -528,7 +560,7 @@ QComboBox QAbstractItemView::item:selected {
         <x>2</x>
         <y>10</y>
         <width>591</width>
-        <height>481</height>
+        <height>511</height>
        </rect>
       </property>
       <property name="font">
@@ -650,12 +682,12 @@ subcontrol-origin:border;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="lineEdit_leave">
         <property name="geometry">
          <rect>
           <x>170</x>
           <y>170</y>
-          <width>211</width>
+          <width>141</width>
           <height>41</height>
          </rect>
         </property>
@@ -911,12 +943,12 @@ QComboBox QAbstractItemView::item:selected {
 </string>
         </property>
        </widget>
-       <widget class="QPushButton" name="get_report_2">
+       <widget class="QPushButton" name="get_leave">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>340</y>
-          <width>191</width>
+          <x>180</x>
+          <y>350</y>
+          <width>201</width>
           <height>41</height>
          </rect>
         </property>
@@ -944,12 +976,53 @@ QPushButton:pressed{
          <string>提交请假申请</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label_leave_1">
+        <property name="geometry">
+         <rect>
+          <x>161</x>
+          <y>414</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>170</y>
+          <width>71</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>天</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
         <string>            我的历史申请            </string>
        </attribute>
-       <widget class="QTableView" name="tableView_2">
+       <widget class="QTableView" name="tableView_leave">
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -1048,7 +1121,7 @@ QPushButton:pressed{
      <attribute name="title">
       <string>Tab 4</string>
      </attribute>
-     <widget class="QTableView" name="tableView">
+     <widget class="QTableView" name="tableView_tube">
       <property name="geometry">
        <rect>
         <x>130</x>

@@ -1,5 +1,6 @@
 import sys
 import time
+import datetime
 from PyQt5.QtWidgets import QMainWindow,QApplication
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
@@ -148,12 +149,15 @@ class student(QMainWindow,Ui_MainWindow):
         self.health_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
         self.tube_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(3)})
         self.health_show_button.clicked.connect(self.show_health_QRcode)
+        self.get_report.clicked.connect(self.report)
+        self.get_leave.clicked.connect(self.leave)
         self.init_data()
         self.init_ui()
         self.image.setScaledContents(True)
 
     def init(self,sno:str):
         self.sno=sno
+        self.adrress=''
         f=open('temp_QRcode.png','wb')
         sql="select QRcode from healthy where sno='{}'".format(self.sno)
         (num,cur)=Thread1.mysql.select(sql)
@@ -163,7 +167,33 @@ class student(QMainWindow,Ui_MainWindow):
             ImageByteStream=cur.fetchone()[0]
             f.write(ImageByteStream)
 
+    def report(self):
+        temperature=self.comboBox_tem.currentText()
+        add_information=self.textEdit.toPlainText()
+        date=datetime.datetime.now().strftime("%Y-%m-%d")
+        sql="insert into report values('{}','{}','{}','{}','{}')"
+        if self.adrress=='':
+            self.label_report_1.setText('             未选择当前位置！')
+        else:
+            if Thread1.mysql.insert(sql.format(self.sno,date,temperature,self.adrress,add_information)) == 1:
+                self.label_report_1.setText('            今日填报提交成功！')
+            else:
+                self.label_report_1.setText('             今日已提交填报！')
 
+    def leave(self):
+        date=self.dateTimeEdit.dateTime()
+        time_lenth=self.lineEdit_leave.text()
+        sql="insert into _leave_ values('{}','{}','{}','{}',0)"
+        if time_lenth=='':
+            self.label_leave_1.setText('       未填写请假时长！')
+        elif self.address_leave=='':
+            self.label_leave_1.setText('       未选择请假去向！')
+        else:
+            (flag,info)=Thread1.mysql.insert_for_trigger(sql.format(self.sno,date,time_lenth,self.address_leave))
+            print(info)
+        pass
+
+    
     def show_health_QRcode(self):
         self.image.setPixmap(QPixmap('temp_QRcode.png'))
 
@@ -173,18 +203,25 @@ class student(QMainWindow,Ui_MainWindow):
             self.data_json = json.loads(data.read())
 
     def init_ui(self):
-        # 省选择器
-        self.comboBox_province.addItem("--请选择省")
-        self.comboBox_province.currentTextChanged.connect(self.slot_province_click)
         for data in self.data_json:
             self.comboBox_province.addItem(data['Name'])
-        # 市选择器
+            self.comboBox_province_2.addItem(data['Name'])
+
+        self.comboBox_province.addItem("--请选择省")
+        self.comboBox_province.currentTextChanged.connect(self.slot_province_click)
+        self.comboBox_province_2.addItem("--请选择省")
+        self.comboBox_province_2.currentTextChanged.connect(self.slot_province_click_2)
+
         self.comboBox_city.addItem("--请选择市")
         self.comboBox_city.currentTextChanged.connect(self.slot_city_click)
-        # 县选择器
+        self.comboBox_city_2.addItem("--请选择市")
+        self.comboBox_city_2.currentTextChanged.connect(self.slot_city_click_2)
+
         self.comboBox_county.addItem("--请选择县")
         self.comboBox_county.currentTextChanged.connect(self.slot_county_click)
-    # 省选择器点击响应
+        self.comboBox_county_2.addItem("--请选择县")
+        self.comboBox_county_2.currentTextChanged.connect(self.slot_county_click_2)
+
     def slot_province_click(self):
         current_province = self.comboBox_province.currentText()
         if current_province.startswith('--') is False:
@@ -197,7 +234,20 @@ class student(QMainWindow,Ui_MainWindow):
         else:
             self.comboBox_city.clear()
             self.comboBox_county.clear()
-    # 市选择器点击响应
+    
+    def slot_province_click_2(self):
+        current_province = self.comboBox_province_2.currentText()
+        if current_province.startswith('--') is False:
+            for data in self.data_json:
+                if data['Name'] == current_province:
+                    self.current_city_data = data['Cities']
+                    self.comboBox_city_2.clear()
+                    for c in data['Cities']:
+                        self.comboBox_city_2.addItem(c['Name'])
+        else:
+            self.comboBox_city_2.clear()
+            self.comboBox_county_2.clear()
+
     def slot_city_click(self):
         current_city = self.comboBox_city.currentText()
         if current_city.startswith('--') is False:
@@ -207,8 +257,19 @@ class student(QMainWindow,Ui_MainWindow):
                     for c in data['Districts']:
                         self.comboBox_county.addItem(c['Name'])
 
+    def slot_city_click_2(self):
+        current_city = self.comboBox_city_2.currentText()
+        if current_city.startswith('--') is False:
+            for data in self.current_city_data:
+                if data['Name'] == current_city:
+                    self.comboBox_county_2.clear()
+                    for c in data['Districts']:
+                        self.comboBox_county_2.addItem(c['Name'])
+
     def slot_county_click(self):
         self.adrress=self.comboBox_province.currentText()+self.comboBox_city.currentText()+self.comboBox_county.currentText()
+    def slot_county_click_2(self):
+        self.address_leave=self.comboBox_province_2.currentText()+self.comboBox_city_2.currentText()+self.comboBox_county_2.currentText()
 
 
 class SurMainWindow(QMainWindow, Ui_Form):
