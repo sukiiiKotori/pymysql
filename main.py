@@ -57,7 +57,8 @@ class log_in(QMainWindow,Ui_MainWindow_login):
             password_fromDB=cur.fetchone()[0]
             if password_fromDB==password:
                 self.close()
-                Sign_up.show()
+                Teacher.init(username)
+                Teacher.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
@@ -78,7 +79,6 @@ class log_in(QMainWindow,Ui_MainWindow_login):
                 surWin.show()
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
-
 
         
 class sign_up(QMainWindow,Ui_MainWindow_signup):
@@ -324,10 +324,47 @@ class student(QMainWindow,Ui_MainWindow_stu):
     def slot_county_click_2(self):
         self.address_leave=self.comboBox_province_2.currentText()+self.comboBox_city_2.currentText()+self.comboBox_county_2.currentText()
 
-class Teacher(QMainWindow,Ui_MainWindow_tea):
+class teacher(QMainWindow,Ui_MainWindow_tea):
     def __init__(self, parent=None):
-        super(Teacher,self).__init__(parent)
+        super(teacher,self).__init__(parent)
         self.setupUi(self)
+        self.report_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(0)})
+        self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
+        self.get_report.clicked.connect(self.report)
+        self.tableWidget_report.verticalHeader().setVisible(False)
+        self.tableWidget_report.setColumnWidth(0,110)
+        self.tableWidget_report.setColumnWidth(1,140)
+        self.tableWidget_report.setColumnWidth(2,100)
+        self.tableWidget_report.setColumnWidth(3,225)
+        
+    def init(self,tno:str):
+        self.tno=tno
+        Thread1.mysql.create_view(self.tno)
+        
+    def report(self):
+        date=self.dateEdit.date().toString('yyyy-MM-dd')
+        (num,cur)=Thread1.mysql.select("select * from view_teacher_{}".format(self.tno))
+        list_sno=[]
+        i=0
+        for row in cur.fetchall():
+            row_count=self.tableWidget_report.rowCount()
+            self.tableWidget_report.insertRow(row_count)
+            list_sno.append(row[0])
+            for j in range(2):
+                self.tableWidget_report.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+            i+=1
+        i=0
+        for i in range(num):
+            (num_in,cur_in)=Thread1.mysql.select("select rtemp,rarea from report where sno='{}' and rtime='{}'".format(list_sno[i],date))
+            if num_in==0:
+                self.tableWidget_report.setItem(i, 2, QtWidgets.QTableWidgetItem('当日未填报'))
+                self.tableWidget_report.setItem(i, 3, QtWidgets.QTableWidgetItem('当日未填报'))
+            else:
+                tp=cur_in.fetchone()
+                self.tableWidget_report.setItem(i, 2, QtWidgets.QTableWidgetItem(str(tp[0])))
+                self.tableWidget_report.setItem(i, 3, QtWidgets.QTableWidgetItem(str(tp[1])))
+            i+=1
+    
 
 class SurMainWindow(QMainWindow, Ui_Form):
     def __init__(self,parent=None):
@@ -547,6 +584,7 @@ if __name__ == "__main__":
     
     Sign_up=sign_up()
     Student=student()
+    Teacher=teacher()
 
     surWin = SurMainWindow()
     manWin = ManagerMainWindow()

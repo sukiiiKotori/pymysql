@@ -37,7 +37,14 @@ class Mysql:
         except BaseException as e:
             return e.args[1]
 
-    def sign_in_db(self,username:str,password:str):
+    def create_view(self,tno:str):
+        sql="CREATE VIEW view_teacher_{0} AS SELECT sno,sname FROM `student` WHERE `cno`=(SELECT `m_cno` FROM `teacher` WHERE `tno`='{0}')"
+        try:
+            self.cursor.execute(sql.format(tno))
+            self.con.commit()
+            return 1
+        except:
+            return 0
         pass
 
     def commit_test(self, sno:str, teid:str, wno:str):
