@@ -6,8 +6,8 @@ from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
 from Ui_sign_up import Ui_MainWindow_signup
-from Ui_student import Ui_MainWindow
-
+from Ui_student import Ui_MainWindow_stu
+from Ui_teacher import Ui_MainWindow_tea
 from Ui_manager import Ui_Manager
 from Ui_surveyor import Ui_Form
 from Thread_Mysql import Thread_mysql
@@ -140,7 +140,7 @@ class sign_up(QMainWindow,Ui_MainWindow_signup):
                 self.label.setText('          注册失败！\n       该用户已存在')
         
 
-class student(QMainWindow,Ui_MainWindow):
+class student(QMainWindow,Ui_MainWindow_stu):
     def __init__(self, parent=None):
         super(student,self).__init__(parent)
         self.setupUi(self)
@@ -324,6 +324,10 @@ class student(QMainWindow,Ui_MainWindow):
     def slot_county_click_2(self):
         self.address_leave=self.comboBox_province_2.currentText()+self.comboBox_city_2.currentText()+self.comboBox_county_2.currentText()
 
+class Teacher(QMainWindow,Ui_MainWindow_tea):
+    def __init__(self, parent=None):
+        super(Teacher,self).__init__(parent)
+        self.setupUi(self)
 
 class SurMainWindow(QMainWindow, Ui_Form):
     def __init__(self,parent=None):

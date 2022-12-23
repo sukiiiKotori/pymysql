@@ -11,12 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        MainWindow.setStyleSheet("background-color:rgb(255, 255, 255)")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_MainWindow_tea(object):
+    def setupUi(self, MainWindow_tea):
+        MainWindow_tea.setObjectName("MainWindow_tea")
+        MainWindow_tea.resize(800, 600)
+        MainWindow_tea.setStyleSheet("background-color:rgb(255, 255, 255)")
+        self.centralwidget = QtWidgets.QWidget(MainWindow_tea)
         self.centralwidget.setObjectName("centralwidget")
         self.report_button = QtWidgets.QPushButton(self.centralwidget)
         self.report_button.setGeometry(QtCore.QRect(10, 220, 171, 41))
@@ -266,27 +266,27 @@ class Ui_MainWindow(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.tabWidget.addTab(self.tab_2, "")
-        MainWindow.setCentralWidget(self.centralwidget)
+        MainWindow_tea.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow_tea)
         self.tabWidget.setCurrentIndex(0)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow_tea)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow_tea):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "班主任管理"))
-        self.report_button.setText(_translate("MainWindow", "学生填报管理"))
-        self.leave_button.setText(_translate("MainWindow", "学生请假管理"))
+        MainWindow_tea.setWindowTitle(_translate("MainWindow_tea", "班主任管理"))
+        self.report_button.setText(_translate("MainWindow_tea", "学生填报管理"))
+        self.leave_button.setText(_translate("MainWindow_tea", "学生请假管理"))
         item = self.tableWidget_report.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "姓名"))
+        item.setText(_translate("MainWindow_tea", "姓名"))
         item = self.tableWidget_report.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "学号"))
+        item.setText(_translate("MainWindow_tea", "学号"))
         item = self.tableWidget_report.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "当日体温"))
+        item.setText(_translate("MainWindow_tea", "当日体温"))
         item = self.tableWidget_report.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "填报地点"))
-        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-M-d"))
-        self.label.setText(_translate("MainWindow", "请选择日期"))
-        self.get_report.setText(_translate("MainWindow", "显示近7日填报"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+        item.setText(_translate("MainWindow_tea", "填报地点"))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow_tea", "yyyy-M-d"))
+        self.label.setText(_translate("MainWindow_tea", "请选择日期"))
+        self.get_report.setText(_translate("MainWindow_tea", "显示近7日填报"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow_tea", "Tab 1"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow_tea", "Tab 2"))
