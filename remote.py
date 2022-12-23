@@ -87,8 +87,8 @@ class Mysql:
             self.cursor.execute(sql2, address)
             self.con.commit()
             return 1
-    
-    def code_commit(self, sno:str, state:str, massage:str):
+
+    def code_commit(self, sno: str, state: str, massage: str):
         qr = qrcode.QRCode()
         qr.add_data(massage)
         if state == '健康':
@@ -103,12 +103,16 @@ class Mysql:
         sql1 = f'select * from healthy where sno = %s'
         self.cursor.execute(sql1, sno)
         if self.cursor.rowcount == 0:
-            sql2 = f'insert into healthy values(%s, %s)'
-            self.cursor.execute(sql2, (sno, binary))
+            try:
+                sql2 = f'insert into healthy values(%s, %s)'
+                self.cursor.execute(sql2, (sno, binary))
+            except BaseException as e:
+                return e.args[1]
         else:
             sql2 = f'update healthy set QRcode = %s where sno = %s'
             self.cursor.execute(sql2, (binary, sno))
         self.con.commit()
+        return '提交成功'
 
     def close(self):
         self.cursor.close()

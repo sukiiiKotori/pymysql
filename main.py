@@ -331,6 +331,7 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
         self.button7.clicked.connect(self.code_change)
         self.init_data() # 初始化数据
         self.init_ui() # 初始化UI
+
     def code_change(self):
         sno = self.lineEdit_2.text()
         state = self.comboBox_2.currentText()
@@ -341,8 +342,8 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
             massage = '学号：' + sno + '\n' + '健康状态：' + state
             if addi != '':
                 massage = massage + '\n' + '备注信息：' + addi
-            Thread1.mysql.code_commit(sno, state, massage)
-            self.label_12.setText("提交成功！")
+            mes = Thread1.mysql.code_commit(sno, state, massage)
+            self.label_12.setText(mes)
             self.lineEdit_2.clear()
             self.lineEdit_3.clear()
     def set_welcome_massage(self):
