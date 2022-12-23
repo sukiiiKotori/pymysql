@@ -163,6 +163,7 @@ class student(QMainWindow,Ui_MainWindow):
             ImageByteStream=cur.fetchone()[0]
             f.write(ImageByteStream)
 
+
     def show_health_QRcode(self):
         self.image.setPixmap(QPixmap('temp_QRcode.png'))
 

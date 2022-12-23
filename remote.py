@@ -26,8 +26,7 @@ class Mysql:
             self.cursor.execute(query)
             self.con.commit()
             return 1
-        except BaseException as e:
-            print(e)
+        except:
             return 0
 
     def sign_in_db(self,username:str,password:str):
