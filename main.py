@@ -370,7 +370,7 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
         
     def init(self,tno:str):
         self.tno=tno
-        Thread1.mysql.create_view(self.tno)
+        Thread1.mysql.create_view(tno)
         
     def report(self):
         date=self.dateEdit.date().toString('yyyy-MM-dd')
@@ -411,6 +411,7 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
         
 
     def flush_approve(self):
+        self.tableWidget_leave_2.setRowCount(0)
         (num,cur)=Thread1.mysql.select("select sname,sno,`date`,time_lenth,area from `view_teacher_1` NATURAL JOIN `_leave_` WHERE `is_approve`='否'")
         i=0
         for row in cur.fetchall():

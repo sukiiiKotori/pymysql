@@ -639,11 +639,15 @@ class Ui_MainWindow_tea(object):
         self.label_leave.setObjectName("label_leave")
         self.tabWidget_2.addTab(self.tab_4, "")
         self.tabWidget.addTab(self.tab_2, "")
+        self.label_10 = QtWidgets.QLabel(self.centralwidget)
+        self.label_10.setGeometry(QtCore.QRect(30, 10, 401, 51))
+        self.label_10.setText("")
+        self.label_10.setObjectName("label_10")
         MainWindow_tea.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_tea)
-        self.tabWidget.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_tea)
 
     def retranslateUi(self, MainWindow_tea):
