@@ -19,7 +19,7 @@ class Ui_MainWindow_tea(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow_tea)
         self.centralwidget.setObjectName("centralwidget")
         self.report_button = QtWidgets.QPushButton(self.centralwidget)
-        self.report_button.setGeometry(QtCore.QRect(10, 220, 151, 41))
+        self.report_button.setGeometry(QtCore.QRect(10, 190, 151, 41))
         self.report_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
@@ -40,7 +40,7 @@ class Ui_MainWindow_tea(object):
 "")
         self.report_button.setObjectName("report_button")
         self.leave_button = QtWidgets.QPushButton(self.centralwidget)
-        self.leave_button.setGeometry(QtCore.QRect(10, 290, 151, 41))
+        self.leave_button.setGeometry(QtCore.QRect(10, 260, 151, 41))
         self.leave_button.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
@@ -61,7 +61,7 @@ class Ui_MainWindow_tea(object):
 "")
         self.leave_button.setObjectName("leave_button")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(170, 30, 621, 561))
+        self.tabWidget.setGeometry(QtCore.QRect(180, 30, 621, 561))
         self.tabWidget.setStyleSheet("QTabWidget::pane{\n"
 "    border:none;\n"
 "}")
@@ -639,10 +639,88 @@ class Ui_MainWindow_tea(object):
         self.label_leave.setObjectName("label_leave")
         self.tabWidget_2.addTab(self.tab_4, "")
         self.tabWidget.addTab(self.tab_2, "")
-        self.label_10 = QtWidgets.QLabel(self.centralwidget)
-        self.label_10.setGeometry(QtCore.QRect(30, 10, 401, 51))
-        self.label_10.setText("")
-        self.label_10.setObjectName("label_10")
+        self.tab_5 = QtWidgets.QWidget()
+        self.tab_5.setObjectName("tab_5")
+        self.password_comfirm_lineEdit = QtWidgets.QLineEdit(self.tab_5)
+        self.password_comfirm_lineEdit.setGeometry(QtCore.QRect(180, 230, 221, 41))
+        self.password_comfirm_lineEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_comfirm_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_comfirm_lineEdit.setObjectName("password_comfirm_lineEdit")
+        self.leave_button_5 = QtWidgets.QPushButton(self.tab_5)
+        self.leave_button_5.setGeometry(QtCore.QRect(220, 300, 141, 41))
+        self.leave_button_5.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.leave_button_5.setObjectName("leave_button_5")
+        self.password_lineEdit_new = QtWidgets.QLineEdit(self.tab_5)
+        self.password_lineEdit_new.setGeometry(QtCore.QRect(180, 160, 221, 41))
+        self.password_lineEdit_new.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_lineEdit_new.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_lineEdit_new.setObjectName("password_lineEdit_new")
+        self.password_lineEdit_old = QtWidgets.QLineEdit(self.tab_5)
+        self.password_lineEdit_old.setGeometry(QtCore.QRect(180, 90, 221, 41))
+        self.password_lineEdit_old.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_lineEdit_old.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_lineEdit_old.setObjectName("password_lineEdit_old")
+        self.label_9 = QtWidgets.QLabel(self.tab_5)
+        self.label_9.setGeometry(QtCore.QRect(200, 360, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_9.setFont(font)
+        self.label_9.setStyleSheet("color: rgb(255, 0, 0);")
+        self.label_9.setText("")
+        self.label_9.setObjectName("label_9")
+        self.tabWidget.addTab(self.tab_5, "")
+        self.change_password_button = QtWidgets.QPushButton(self.centralwidget)
+        self.change_password_button.setGeometry(QtCore.QRect(10, 330, 151, 41))
+        self.change_password_button.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.change_password_button.setObjectName("change_password_button")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(110, 10, 331, 51))
+        self.label_2.setText("")
+        self.label_2.setObjectName("label_2")
         MainWindow_tea.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_tea)
@@ -693,3 +771,9 @@ class Ui_MainWindow_tea(object):
         self.leave_button_4.setText(_translate("MainWindow_tea", "查看未批准学生"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow_tea", "                  未批准                  "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow_tea", "Tab 2"))
+        self.password_comfirm_lineEdit.setPlaceholderText(_translate("MainWindow_tea", "确认新密码"))
+        self.leave_button_5.setText(_translate("MainWindow_tea", "确认修改"))
+        self.password_lineEdit_new.setPlaceholderText(_translate("MainWindow_tea", "新密码"))
+        self.password_lineEdit_old.setPlaceholderText(_translate("MainWindow_tea", "请输入旧密码以确认身份"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow_tea", "Tab 3"))
+        self.change_password_button.setText(_translate("MainWindow_tea", "修改密码"))

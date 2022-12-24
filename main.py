@@ -156,12 +156,14 @@ class student(QMainWindow,Ui_MainWindow_stu):
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
         self.health_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
         self.tube_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(3)})
+        self.change_password_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(4)})
         self.health_show_button.clicked.connect(self.show_health_QRcode)
         self.get_report.clicked.connect(self.report)
         self.get_leave.clicked.connect(self.leave)
         self.get_report_2.clicked.connect(self.history_report)
         self.get_leave_2.clicked.connect(self.history_leave)
         self.tube_button_2.clicked.connect(self.history_test)
+        self.leave_button_2.clicked.connect(self.change_password)
         self.init_data()
         self.init_ui()
         self.image.setScaledContents(True)
@@ -197,6 +199,21 @@ class student(QMainWindow,Ui_MainWindow_stu):
             ImageByteStream=cur.fetchone()[0]
             f.write(ImageByteStream)
 
+    def change_password(self):
+        (_,cur)=Thread1.mysql.select("select spassword from student where sno='{}'".format(self.sno))
+        password_old_fromDB=cur.fetchone()[0]
+        password_old_fromLine=self.password_lineEdit_old.text()
+        password_new=self.password_lineEdit_new.text()
+        password_confirm=self.password_comfirm_lineEdit.text()
+        if password_old_fromDB!=password_old_fromLine :
+            self.label_9.setText('      原密码错误！')
+        elif password_new!=password_confirm :
+            self.label_9.setText('     密码确认错误！')
+        else :
+            Thread1.mysql.insert("update student set spassword='{}' where sno ='{}'".format(password_new,self.sno))
+            self.label_9.setText('     密码修改成功！')
+
+
     def report(self):
         temperature=self.comboBox_tem.currentText()
         add_information=self.textEdit.toPlainText()
@@ -208,6 +225,8 @@ class student(QMainWindow,Ui_MainWindow_stu):
             if Thread1.mysql.insert(sql.format(self.sno,date,temperature,self.adrress,add_information)) == 1:
                 self.label_report_1.setText('            今日填报提交成功！')
             else:
+                Thread1.mysql.insert("delete from report where sno='{}' and rtime='{}'".format(self.sno,date))
+                Thread1.mysql.insert(sql.format(self.sno,date,temperature,self.adrress,add_information))
                 self.label_report_1.setText('             今日填报已更新！')
     
     def history_report(self):
@@ -348,10 +367,12 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
         self.current_date=''
         self.report_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(0)})
         self.leave_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(1)})
+        self.change_password_button.clicked.connect(lambda:{self.tabWidget.setCurrentIndex(2)})
         self.get_report.clicked.connect(self.report)
         self.leave_button_2.clicked.connect(self.display_approve)
         self.leave_button_3.clicked.connect(self.approve)
         self.leave_button_4.clicked.connect(self.flush_approve)
+        self.leave_button_5.clicked.connect(self.change_password)
         self.tableWidget_leave_2.cellPressed.connect(self.getPosContent)
         self.tableWidget_report.verticalHeader().setVisible(False)
         self.tableWidget_leave.verticalHeader().setVisible(False)
@@ -379,6 +400,20 @@ class teacher(QMainWindow,Ui_MainWindow_tea):
     def init(self,tno:str):
         self.tno=tno
         Thread1.mysql.create_view(tno)
+
+    def change_password(self):
+        (_,cur)=Thread1.mysql.select("select tpassword from teacher where tno='{}'".format(self.tno))
+        password_old_fromDB=cur.fetchone()[0]
+        password_old_fromLine=self.password_lineEdit_old.text()
+        password_new=self.password_lineEdit_new.text()
+        password_confirm=self.password_comfirm_lineEdit.text()
+        if password_old_fromDB!=password_old_fromLine :
+            self.label_9.setText('      原密码错误！')
+        elif password_new!=password_confirm :
+            self.label_9.setText('     密码确认错误！')
+        else :
+            Thread1.mysql.insert("update teacher set tpassword='{}' where tno ='{}'".format(password_new,self.tno))
+            self.label_9.setText('     密码修改成功！')
         
     def report(self):
         date=self.dateEdit.date().toString('yyyy-MM-dd')

@@ -1188,6 +1188,63 @@ class Ui_MainWindow_stu(object):
 "")
         self.tube_button_2.setObjectName("tube_button_2")
         self.tabWidget.addTab(self.tab_4, "")
+        self.tab_9 = QtWidgets.QWidget()
+        self.tab_9.setObjectName("tab_9")
+        self.password_lineEdit_new = QtWidgets.QLineEdit(self.tab_9)
+        self.password_lineEdit_new.setGeometry(QtCore.QRect(160, 190, 221, 41))
+        self.password_lineEdit_new.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_lineEdit_new.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_lineEdit_new.setObjectName("password_lineEdit_new")
+        self.password_comfirm_lineEdit = QtWidgets.QLineEdit(self.tab_9)
+        self.password_comfirm_lineEdit.setGeometry(QtCore.QRect(160, 260, 221, 41))
+        self.password_comfirm_lineEdit.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_comfirm_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_comfirm_lineEdit.setObjectName("password_comfirm_lineEdit")
+        self.password_lineEdit_old = QtWidgets.QLineEdit(self.tab_9)
+        self.password_lineEdit_old.setGeometry(QtCore.QRect(160, 120, 221, 41))
+        self.password_lineEdit_old.setStyleSheet("border:2px solid rgb(186,186,186);\n"
+"font: 10pt \"微软雅黑\";\n"
+"border-radius:10px\n"
+"")
+        self.password_lineEdit_old.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_lineEdit_old.setObjectName("password_lineEdit_old")
+        self.leave_button_2 = QtWidgets.QPushButton(self.tab_9)
+        self.leave_button_2.setGeometry(QtCore.QRect(200, 330, 141, 41))
+        self.leave_button_2.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.leave_button_2.setObjectName("leave_button_2")
+        self.label_9 = QtWidgets.QLabel(self.tab_9)
+        self.label_9.setGeometry(QtCore.QRect(180, 390, 171, 31))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(12)
+        self.label_9.setFont(font)
+        self.label_9.setStyleSheet("color: rgb(255, 0, 0);")
+        self.label_9.setText("")
+        self.label_9.setObjectName("label_9")
+        self.tabWidget.addTab(self.tab_9, "")
         self.report_button = QtWidgets.QPushButton(self.centralwidget)
         self.report_button.setGeometry(QtCore.QRect(20, 150, 141, 41))
         self.report_button.setStyleSheet("QPushButton{\n"
@@ -1272,8 +1329,29 @@ class Ui_MainWindow_stu(object):
 "}\n"
 "")
         self.health_button.setObjectName("health_button")
+        self.change_password_button = QtWidgets.QPushButton(self.centralwidget)
+        self.change_password_button.setGeometry(QtCore.QRect(20, 430, 141, 41))
+        self.change_password_button.setStyleSheet("QPushButton{\n"
+"    font: 12pt \"微软雅黑\";\n"
+"    \n"
+"    background-color:rgb(46, 154, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
+"    border-radius:10px\n"
+"}\n"
+"QPushButton:hover{\n"
+"    \n"
+"    color:rgb(46, 154, 255);\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    padding-top:5px;\n"
+"    padding-left:5px\n"
+"}\n"
+"")
+        self.change_password_button.setObjectName("change_password_button")
         self.label_10 = QtWidgets.QLabel(self.centralwidget)
-        self.label_10.setGeometry(QtCore.QRect(80, 0, 401, 41))
+        self.label_10.setGeometry(QtCore.QRect(110, 10, 441, 31))
         self.label_10.setText("")
         self.label_10.setObjectName("label_10")
         MainWindow_stu.setCentralWidget(self.centralwidget)
@@ -1350,7 +1428,13 @@ class Ui_MainWindow_stu(object):
         item.setText(_translate("MainWindow_stu", "检测结果"))
         self.tube_button_2.setText(_translate("MainWindow_stu", "查看14天内核酸结果"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow_stu", "Tab 4"))
+        self.password_lineEdit_new.setPlaceholderText(_translate("MainWindow_stu", "新密码"))
+        self.password_comfirm_lineEdit.setPlaceholderText(_translate("MainWindow_stu", "确认新密码"))
+        self.password_lineEdit_old.setPlaceholderText(_translate("MainWindow_stu", "请输入旧密码以确认身份"))
+        self.leave_button_2.setText(_translate("MainWindow_stu", "确认修改"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_9), _translate("MainWindow_stu", "Tab 5"))
         self.report_button.setText(_translate("MainWindow_stu", "疫情填报"))
         self.leave_button.setText(_translate("MainWindow_stu", "请假管理"))
         self.tube_button.setText(_translate("MainWindow_stu", "查看核酸结果"))
         self.health_button.setText(_translate("MainWindow_stu", "查看健康码"))
+        self.change_password_button.setText(_translate("MainWindow_stu", "修改密码"))
