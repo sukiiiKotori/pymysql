@@ -17,6 +17,9 @@ class Ui_Manager(object):
         Form.resize(800, 600)
         self.tabWidget = QtWidgets.QTabWidget(Form)
         self.tabWidget.setGeometry(QtCore.QRect(170, 70, 631, 531))
+        self.tabWidget.setStyleSheet("QTabWidget::pane{\n"
+"    border:none;\n"
+"}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -34,6 +37,11 @@ class Ui_Manager(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_9 = QtWidgets.QLabel(self.tab)
         self.label_9.setGeometry(QtCore.QRect(100, 140, 61, 21))
@@ -48,6 +56,11 @@ class Ui_Manager(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.comboBox_2.setFont(font)
+        self.comboBox_2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
@@ -71,21 +84,20 @@ class Ui_Manager(object):
         self.button7.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button7.setObjectName("button7")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.tab)
         self.lineEdit_3.setGeometry(QtCore.QRect(210, 290, 241, 31))
@@ -93,6 +105,11 @@ class Ui_Manager(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.lineEdit_3.setFont(font)
+        self.lineEdit_3.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_12 = QtWidgets.QLabel(self.tab)
         self.label_12.setGeometry(QtCore.QRect(230, 420, 241, 71))
@@ -126,30 +143,44 @@ class Ui_Manager(object):
         self.button4.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button4.setObjectName("button4")
         self.comboBox_ct1 = QtWidgets.QComboBox(self.tab_4)
         self.comboBox_ct1.setGeometry(QtCore.QRect(430, 160, 141, 31))
+        self.comboBox_ct1.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_ct1.setObjectName("comboBox_ct1")
         self.comboBox_p1 = QtWidgets.QComboBox(self.tab_4)
         self.comboBox_p1.setGeometry(QtCore.QRect(130, 160, 141, 31))
+        self.comboBox_p1.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_p1.setObjectName("comboBox_p1")
         self.comboBox_c1 = QtWidgets.QComboBox(self.tab_4)
         self.comboBox_c1.setGeometry(QtCore.QRect(280, 160, 141, 31))
+        self.comboBox_c1.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_c1.setObjectName("comboBox_c1")
         self.label_6 = QtWidgets.QLabel(self.tab_4)
         self.label_6.setGeometry(QtCore.QRect(10, 330, 601, 101))
@@ -175,30 +206,44 @@ class Ui_Manager(object):
         self.button5.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button5.setObjectName("button5")
         self.comboBox_p2 = QtWidgets.QComboBox(self.tab_5)
         self.comboBox_p2.setGeometry(QtCore.QRect(130, 160, 141, 31))
+        self.comboBox_p2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_p2.setObjectName("comboBox_p2")
         self.comboBox_c2 = QtWidgets.QComboBox(self.tab_5)
         self.comboBox_c2.setGeometry(QtCore.QRect(280, 160, 141, 31))
+        self.comboBox_c2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_c2.setObjectName("comboBox_c2")
         self.comboBox_ct2 = QtWidgets.QComboBox(self.tab_5)
         self.comboBox_ct2.setGeometry(QtCore.QRect(432, 160, 141, 31))
+        self.comboBox_ct2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox_ct2.setObjectName("comboBox_ct2")
         self.label_7 = QtWidgets.QLabel(self.tab_5)
         self.label_7.setGeometry(QtCore.QRect(10, 340, 601, 101))
@@ -226,6 +271,11 @@ class Ui_Manager(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.tab_3)
@@ -241,6 +291,11 @@ class Ui_Manager(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.comboBox.setFont(font)
+        self.comboBox.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -249,14 +304,14 @@ class Ui_Manager(object):
         self.button6.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -279,63 +334,60 @@ class Ui_Manager(object):
         self.button1.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button1.setObjectName("button1")
         self.button2 = QtWidgets.QPushButton(Form)
         self.button2.setGeometry(QtCore.QRect(20, 220, 121, 41))
         self.button2.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button2.setObjectName("button2")
         self.button3 = QtWidgets.QPushButton(Form)
         self.button3.setGeometry(QtCore.QRect(20, 280, 121, 41))
         self.button3.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button3.setObjectName("button3")
         self.textBrowser = QtWidgets.QTextBrowser(Form)
         self.textBrowser.setGeometry(QtCore.QRect(0, 0, 811, 91))
@@ -343,6 +395,7 @@ class Ui_Manager(object):
         font.setFamily("Agency FB")
         font.setPointSize(36)
         self.textBrowser.setFont(font)
+        self.textBrowser.setStyleSheet("")
         self.textBrowser.setObjectName("textBrowser")
 
         self.retranslateUi(Form)

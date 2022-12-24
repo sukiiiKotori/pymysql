@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Manager</class>
+ <widget class="QWidget" name="Manager">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -21,6 +21,11 @@
      <width>671</width>
      <height>511</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabWidget::pane{
+	border:none;
+}</string>
    </property>
    <property name="currentIndex">
     <number>0</number>
@@ -44,6 +49,13 @@
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">    border: 2px solid #f3f3f3;/*设置线宽*/
+	background-color: rgb(237, 242, 255);/*背景颜色*/
+    border-radius: 10px;/*圆角*/
+	border-style:solid;/*边框为实线型*/
+	border-width:2px;/*边框宽度*/</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_2">
      <property name="geometry">
@@ -59,6 +71,13 @@
        <family>微软雅黑</family>
        <pointsize>12</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    border: 2px solid #f3f3f3;/*设置线宽*/
+	background-color: rgb(237, 242, 255);/*背景颜色*/
+    border-radius: 10px;/*圆角*/
+	border-style:solid;/*边框为实线型*/
+	border-width:2px;/*边框宽度*/</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
@@ -130,21 +149,20 @@
       <string notr="true">QPushButton{
 	font: 12pt &quot;微软雅黑&quot;;
 	
-	background-color: rgb(0, 0, 0);
+	background-color:rgb(46, 154, 255);
 	color: rgb(255, 255, 255);
-	border: 3px solid rgb(0,0,0);
+	border: 3px solid rgb(46, 154, 255);
 	border-radius:10px
 }
 QPushButton:hover{
 	
-	color: rgb(0, 0, 0);
+	color:rgb(46, 154, 255);
 	background-color: rgb(255, 255, 255);
 }
 QPushButton:pressed{
 	padding-top:5px;
 	padding-left:5px
-}
-</string>
+}</string>
      </property>
      <property name="text">
       <string>提交</string>
@@ -191,6 +209,13 @@ QPushButton:pressed{
        <family>微软雅黑</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">    border: 2px solid #f3f3f3;/*设置线宽*/
+	background-color: rgb(237, 242, 255);/*背景颜色*/
+    border-radius: 10px;/*圆角*/
+	border-style:solid;/*边框为实线型*/
+	border-width:2px;/*边框宽度*/</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
@@ -224,14 +249,14 @@ QPushButton:pressed{
       <string notr="true">QPushButton{
 	font: 12pt &quot;微软雅黑&quot;;
 	
-	background-color: rgb(0, 0, 0);
+	background-color:rgb(46, 154, 255);
 	color: rgb(255, 255, 255);
-	border: 3px solid rgb(0,0,0);
+	border: 3px solid rgb(46, 154, 255);
 	border-radius:10px
 }
 QPushButton:hover{
 	
-	color: rgb(0, 0, 0);
+	color:rgb(46, 154, 255);
 	background-color: rgb(255, 255, 255);
 }
 QPushButton:pressed{
@@ -259,21 +284,20 @@ QPushButton:pressed{
     <string notr="true">QPushButton{
 	font: 12pt &quot;微软雅黑&quot;;
 	
-	background-color: rgb(0, 0, 0);
+	background-color:rgb(46, 154, 255);
 	color: rgb(255, 255, 255);
-	border: 3px solid rgb(0,0,0);
+	border: 3px solid rgb(46, 154, 255);
 	border-radius:10px
 }
 QPushButton:hover{
 	
-	color: rgb(0, 0, 0);
+	color:rgb(46, 154, 255);
 	background-color: rgb(255, 255, 255);
 }
 QPushButton:pressed{
 	padding-top:5px;
 	padding-left:5px
-}
-</string>
+}</string>
    </property>
    <property name="text">
     <string>进行核酸检测</string>
@@ -292,21 +316,20 @@ QPushButton:pressed{
     <string notr="true">QPushButton{
 	font: 12pt &quot;微软雅黑&quot;;
 	
-	background-color: rgb(0, 0, 0);
+	background-color:rgb(46, 154, 255);
 	color: rgb(255, 255, 255);
-	border: 3px solid rgb(0,0,0);
+	border: 3px solid rgb(46, 154, 255);
 	border-radius:10px
 }
 QPushButton:hover{
 	
-	color: rgb(0, 0, 0);
+	color:rgb(46, 154, 255);
 	background-color: rgb(255, 255, 255);
 }
 QPushButton:pressed{
 	padding-top:5px;
 	padding-left:5px
-}
-</string>
+}</string>
    </property>
    <property name="text">
     <string>历史检测记录</string>
@@ -326,6 +349,11 @@ QPushButton:pressed{
      <family>微软雅黑</family>
      <pointsize>36</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabWidget::pane{
+	border:none;
+}</string>
    </property>
   </widget>
  </widget>
