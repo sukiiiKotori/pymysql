@@ -28,6 +28,7 @@ class Mysql:
             return 1
         except:
             return 0
+            
 
     def insert_for_trigger(self,query:str):
         try:
@@ -50,6 +51,8 @@ class Mysql:
         sql="UPDATE `_leave_` SET `is_approve`='是' WHERE sno='{}' AND `date`='{}'"
         self.cursor.execute(sql.format(sno,date))
         self.con.commit()
+
+
 
     def commit_test(self, sno:str, teid:str, wno:str):
         try:

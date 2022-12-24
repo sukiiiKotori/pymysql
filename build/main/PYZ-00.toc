@@ -95,13 +95,9 @@
    'C:\\Program Files (x86)\\Microsoft Visual '
    'Studio\\Shared\\Python37_64\\lib\\calendar.py',
    'PYMODULE'),
-  ('_py_abc',
+  ('string',
    'C:\\Program Files (x86)\\Microsoft Visual '
-   'Studio\\Shared\\Python37_64\\lib\\_py_abc.py',
-   'PYMODULE'),
-  ('typing',
-   'C:\\Program Files (x86)\\Microsoft Visual '
-   'Studio\\Shared\\Python37_64\\lib\\typing.py',
+   'Studio\\Shared\\Python37_64\\lib\\string.py',
    'PYMODULE'),
   ('tempfile',
    'C:\\Program Files (x86)\\Microsoft Visual '
@@ -134,10 +130,6 @@
   ('_compat_pickle',
    'C:\\Program Files (x86)\\Microsoft Visual '
    'Studio\\Shared\\Python37_64\\lib\\_compat_pickle.py',
-   'PYMODULE'),
-  ('string',
-   'C:\\Program Files (x86)\\Microsoft Visual '
-   'Studio\\Shared\\Python37_64\\lib\\string.py',
    'PYMODULE'),
   ('shutil',
    'C:\\Program Files (x86)\\Microsoft Visual '
@@ -319,9 +311,17 @@
    'C:\\Program Files (x86)\\Microsoft Visual '
    'Studio\\Shared\\Python37_64\\lib\\tracemalloc.py',
    'PYMODULE'),
+  ('typing',
+   'C:\\Program Files (x86)\\Microsoft Visual '
+   'Studio\\Shared\\Python37_64\\lib\\typing.py',
+   'PYMODULE'),
   ('stringprep',
    'C:\\Program Files (x86)\\Microsoft Visual '
    'Studio\\Shared\\Python37_64\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Program Files (x86)\\Microsoft Visual '
+   'Studio\\Shared\\Python37_64\\lib\\_py_abc.py',
    'PYMODULE'),
   ('Thread_Mysql',
    'C:\\Users\\Py\\Desktop\\vscode\\pymysql\\Thread_Mysql.py',

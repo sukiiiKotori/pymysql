@@ -62,7 +62,7 @@ class log_in(QMainWindow,Ui_MainWindow_login):
         (num,cur)=Thread1.mysql.select("select tpassword from teacher where tno='{}'".format(username))
         if num==0:
             self.label_2.setText('        登陆失败！\n账户不存在...请重试')
-        else :
+        else:
             password_fromDB=cur.fetchone()[0]
             if password_fromDB==password:
                 self.close()
@@ -89,7 +89,6 @@ class log_in(QMainWindow,Ui_MainWindow_login):
             else:
                 self.label_2.setText('        登陆失败！\n  密码错误...请重试')
 
-        
 class sign_up(QMainWindow,Ui_MainWindow_signup):
     def __init__(self, parent=None):
         super(sign_up,self).__init__(parent)
@@ -209,7 +208,7 @@ class student(QMainWindow,Ui_MainWindow_stu):
             if Thread1.mysql.insert(sql.format(self.sno,date,temperature,self.adrress,add_information)) == 1:
                 self.label_report_1.setText('            今日填报提交成功！')
             else:
-                self.label_report_1.setText('             今日已提交填报！')
+                self.label_report_1.setText('             今日填报已更新！')
     
     def history_report(self):
         (num,cur)=Thread1.mysql.select("select rtime,rtemp,rarea from report where sno = '{}' order by rtime desc limit 7".format(self.sno))
