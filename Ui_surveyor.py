@@ -17,6 +17,9 @@ class Ui_Form(object):
         Form.resize(800, 600)
         self.tabWidget = QtWidgets.QTabWidget(Form)
         self.tabWidget.setGeometry(QtCore.QRect(130, 90, 671, 511))
+        self.tabWidget.setStyleSheet("QTabWidget::pane{\n"
+"    border:none;\n"
+"}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -26,6 +29,11 @@ class Ui_Form(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.tab)
         self.lineEdit_2.setGeometry(QtCore.QRect(300, 190, 141, 31))
@@ -33,6 +41,11 @@ class Ui_Form(object):
         font.setFamily("微软雅黑")
         font.setPointSize(12)
         self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label = QtWidgets.QLabel(self.tab)
         self.label.setGeometry(QtCore.QRect(210, 110, 61, 31))
@@ -59,21 +72,20 @@ class Ui_Form(object):
         self.button3.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button3.setObjectName("button3")
         self.label_4 = QtWidgets.QLabel(self.tab)
         self.label_4.setGeometry(QtCore.QRect(200, 330, 271, 81))
@@ -91,6 +103,11 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
         self.textBrowser.setFont(font)
+        self.textBrowser.setStyleSheet("    border: 2px solid #f3f3f3;/*设置线宽*/\n"
+"    background-color: rgb(237, 242, 255);/*背景颜色*/\n"
+"    border-radius: 10px;/*圆角*/\n"
+"    border-style:solid;/*边框为实线型*/\n"
+"    border-width:2px;/*边框宽度*/")
         self.textBrowser.setObjectName("textBrowser")
         self.label_3 = QtWidgets.QLabel(self.tab_2)
         self.label_3.setGeometry(QtCore.QRect(0, 0, 401, 31))
@@ -104,14 +121,14 @@ class Ui_Form(object):
         self.button4.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
@@ -126,42 +143,40 @@ class Ui_Form(object):
         self.button1.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button1.setObjectName("button1")
         self.button2 = QtWidgets.QPushButton(Form)
         self.button2.setGeometry(QtCore.QRect(10, 350, 121, 41))
         self.button2.setStyleSheet("QPushButton{\n"
 "    font: 12pt \"微软雅黑\";\n"
 "    \n"
-"    background-color: rgb(0, 0, 0);\n"
+"    background-color:rgb(46, 154, 255);\n"
 "    color: rgb(255, 255, 255);\n"
-"    border: 3px solid rgb(0,0,0);\n"
+"    border: 3px solid rgb(46, 154, 255);\n"
 "    border-radius:10px\n"
 "}\n"
 "QPushButton:hover{\n"
 "    \n"
-"    color: rgb(0, 0, 0);\n"
+"    color:rgb(46, 154, 255);\n"
 "    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    padding-top:5px;\n"
 "    padding-left:5px\n"
-"}\n"
-"")
+"}")
         self.button2.setObjectName("button2")
         self.textBrowser_2 = QtWidgets.QTextBrowser(Form)
         self.textBrowser_2.setGeometry(QtCore.QRect(0, 0, 811, 111))
@@ -169,6 +184,9 @@ class Ui_Form(object):
         font.setFamily("微软雅黑")
         font.setPointSize(36)
         self.textBrowser_2.setFont(font)
+        self.textBrowser_2.setStyleSheet("QTabWidget::pane{\n"
+"    border:none;\n"
+"}")
         self.textBrowser_2.setObjectName("textBrowser_2")
 
         self.retranslateUi(Form)
