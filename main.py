@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import datetime
@@ -13,6 +14,15 @@ from Ui_surveyor import Ui_Form
 from Thread_Mysql import Thread_mysql
 import json
 import datetime
+
+def source_path(relative_path):
+    # 是否Bundle Resource
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 
 
 class log_in(QMainWindow,Ui_MainWindow_login):
@@ -266,7 +276,7 @@ class student(QMainWindow,Ui_MainWindow_stu):
 
     def init_data(self):
         # 读取json数据
-        with open("./data.json", 'r', encoding='utf-8') as data:
+        with open("data.json", 'r', encoding='utf-8') as data:
             self.data_json = json.loads(data.read())
 
     def init_ui(self):
@@ -645,6 +655,8 @@ class ManagerMainWindow(QMainWindow, Ui_Manager):
 
 
 if __name__ == "__main__":
+    cd = source_path('')
+    os.chdir(cd)
     app = QApplication(sys.argv)
     Log_in=log_in()
 
