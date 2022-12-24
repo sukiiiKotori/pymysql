@@ -49,6 +49,7 @@ class Mysql:
     def update(self,sno:str,date:str):
         sql="UPDATE `_leave_` SET `is_approve`='是' WHERE sno='{}' AND `date`='{}'"
         self.cursor.execute(sql.format(sno,date))
+        self.con.commit()
 
     def commit_test(self, sno:str, teid:str, wno:str):
         try:
