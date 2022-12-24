@@ -1,8 +1,8 @@
 import os
 import sys
-import time
+import json
 import datetime
-from PyQt5.QtWidgets import QMainWindow,QApplication,QHeaderView,QAbstractItemView
+from PyQt5.QtWidgets import QMainWindow,QApplication,QAbstractItemView
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
 from Ui_untitled import Ui_MainWindow_login
@@ -12,8 +12,7 @@ from Ui_teacher import Ui_MainWindow_tea
 from Ui_manager import Ui_Manager
 from Ui_surveyor import Ui_Form
 from Thread_Mysql import Thread_mysql
-import json
-import datetime
+
 
 def source_path(relative_path):
     # 是否Bundle Resource
